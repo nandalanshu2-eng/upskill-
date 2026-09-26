@@ -1,0 +1,333 @@
+const seedTracks = [
+  {
+    id: 1,
+    title: 'Electric Vehicle (EV) Powertrain & Battery Diagnostics',
+    slug: 'ev-powertrain-battery-diagnostics',
+    sector: 'ev',
+    sectorLabel: 'EV & Clean Mobility',
+    badge: 'High Demand • 88% Placement in 60 Days',
+    duration: '6 Months',
+    durationMonths: 6,
+    mode: 'Full-Time Workshop Lab',
+    description: 'Master lithium battery testing, BMS configuration, motor rewinding, and regenerative braking repair on actual 2-wheeler and commercial EV platforms.',
+    stipend: '₹14,000 / month',
+    stipendAmount: 14000,
+    placementCTC: '₹3.8L - ₹5.5L / yr',
+    minEligibility: '12th (Sci) / ITI',
+    recruiters: ['Tata Motors', 'Ather Energy', 'Mahindra Electric', 'Ola Electric'],
+    activeHubs: ['Jaipur', 'Pune', 'Indore', 'Coimbatore'],
+    certification: 'NSDC Level 4 Certified • ASDC Aligned',
+    curriculum: [
+      { step: 1, title: 'EV Fundamentals & High-Voltage Safety', detail: 'Class 0 1000V PPE protocol, lock-out/tag-out, DC bus discharge procedures.' },
+      { step: 2, title: 'Lithium Battery Assembly & BMS Telemetry', detail: 'Prismatic & cylindrical cell balancing, CAN bus logs, thermal runaway containment.' },
+      { step: 3, title: 'BLDC & PMSM Motor Diagnostics', detail: 'Stator winding insulation checks, resolver alignment, controller flashing.' },
+      { step: 4, title: 'On-Road Fault Simulation Lab', detail: 'OBD-II scanner diagnostics, regenerative brake failure mapping, live vehicle triage.' }
+    ],
+    seatsAvailable: 12
+  },
+  {
+    id: 2,
+    title: 'Solar PV Rooftop System Engineer & Grid Specialist',
+    slug: 'solar-pv-rooftop-system-engineer',
+    sector: 'solar',
+    sectorLabel: 'Renewable Energy & Solar',
+    badge: 'Green Mission • MNRE Aligned',
+    duration: '4 Months',
+    durationMonths: 4,
+    mode: 'Hybrid (30 Days Practical On-Roof)',
+    description: 'Covers solar array layout design, net-metering synchronization, high-voltage inverter maintenance, and on-site EPC safety compliance.',
+    stipend: '₹10,500 / month',
+    stipendAmount: 10500,
+    placementCTC: '₹3.2L - ₹4.8L / yr',
+    minEligibility: '10th / 12th Pass',
+    recruiters: ['Adani Solar', 'Sterling & Wilson', 'Loom Solar', 'Tata Power Solar'],
+    activeHubs: ['Lucknow', 'Nagpur', 'Jaipur', 'Patna'],
+    certification: 'PM Surya Ghar Yojana Ready • SCGJ Certified',
+    curriculum: [
+      { step: 1, title: 'Solar Insolation & Site Survey', detail: 'Shadow analysis using Solar Pathfinder, AutoCAD layout planning.' },
+      { step: 2, title: 'Mounting & Electrical Stringing', detail: 'Rooftop civil anchoring, MC4 crimping, string voltage sizing.' },
+      { step: 3, title: 'On-Grid & Hybrid Inverters', detail: 'Grid-tie synchronizers, MPPT programming, net metering compliance.' },
+      { step: 4, title: 'Operation & Preventative Maintenance', detail: 'I-V curve tracing, thermographic drone audit, earthing resistance testing.' }
+    ],
+    seatsAvailable: 15
+  },
+  {
+    id: 3,
+    title: 'Full-Stack Web & Low-Code Business Solutions',
+    slug: 'full-stack-web-low-code-solutions',
+    sector: 'it',
+    sectorLabel: 'Digital & IT Operations',
+    badge: 'Regional Tech Hubs • High Hiring Surge',
+    duration: '7 Months',
+    durationMonths: 7,
+    mode: 'Intensive Lab & Remote Apprenticeship',
+    description: 'Tailored for Tier-2/Tier-3 college graduates. Learn JavaScript, React, Node.js, PostgreSQL, REST APIs, plus Enterprise CRM configurations with 6 live client projects.',
+    stipend: '₹15,000 Milestone Grant',
+    stipendAmount: 15000,
+    placementCTC: '₹4.5L - ₹7.2L / yr',
+    minEligibility: 'B.A. / B.Com / B.Sc / BCA Grad',
+    recruiters: ['Zoho', 'TCS iON', 'Infosys Springboard', 'InfoEdge'],
+    activeHubs: ['Indore', 'Coimbatore', 'Patna', 'Lucknow'],
+    certification: 'NASSCOM FutureSkills Prime Verified',
+    curriculum: [
+      { step: 1, title: 'Modern JavaScript & React UI Architecture', detail: 'ES6+, DOM rendering, component state, responsive Tailwind design systems.' },
+      { step: 2, title: 'Node.js, Express & Database Engineering', detail: 'RESTful API contracts, PostgreSQL/MongoDB indexing, JWT authentication.' },
+      { step: 3, title: 'Low-Code Enterprise Automations', detail: 'Zoho Creator, Retool dashboards, payment gateway & WhatsApp API pipelines.' },
+      { step: 4, title: 'Industry Capstone & Deployment', detail: 'Git workflows, Docker containerization, CI/CD pipelines, production monitoring.' }
+    ],
+    seatsAvailable: 8
+  },
+  {
+    id: 4,
+    title: 'Emergency Medical & Dialysis Technician',
+    slug: 'emergency-medical-dialysis-technician',
+    sector: 'health',
+    sectorLabel: 'Healthcare & Clinical Diagnostics',
+    badge: 'Healthcare Council Certified • Urgent Demand',
+    duration: '9 Months',
+    durationMonths: 9,
+    mode: 'Hospital Bedside Clinical Duty',
+    description: 'Hospital emergency triage protocols, hemodialysis machine maintenance, vital parameter telemetry, and certified clinical bedside assistance.',
+    stipend: '₹11,000 / month',
+    stipendAmount: 11000,
+    placementCTC: '₹3.5L - ₹5.0L / yr',
+    minEligibility: '12th (Biology/Science Preferred)',
+    recruiters: ['Apollo Health', 'Fortis Healthcare', 'Max Healthcare', 'Medanta'],
+    activeHubs: ['Patna', 'Varanasi', 'Bhopal', 'Jaipur'],
+    certification: 'AHA First Responder • Healthcare SSC Level 4',
+    curriculum: [
+      { step: 1, title: 'Emergency Bedside Triage & Vital Signs', detail: 'BLS/ACLS protocols, arterial blood gas sampling, multi-parameter monitoring.' },
+      { step: 2, title: 'Hemodialysis Machine Fluidics & Cannulation', detail: 'Extracorporeal circuit priming, dialyzer clearance monitoring, heparin dosing.' },
+      { step: 3, title: 'Water Treatment & Reverse Osmosis Plants', detail: 'Hospital RO water endotoxin testing, chemical sanitation cycles.' },
+      { step: 4, title: 'Clinical Internship & ICU Rotations', detail: '300 hours supervised hospital emergency and dialysis ward shifts.' }
+    ],
+    seatsAvailable: 10
+  },
+  {
+    id: 5,
+    title: 'Precision CNC Machine Programmer & Multi-Axis Operator',
+    slug: 'cnc-machine-programmer-operator',
+    sector: 'cnc',
+    sectorLabel: 'Advanced Manufacturing & Automation',
+    badge: 'Industrial Export Sector • High Wage Floor',
+    duration: '6 Months',
+    durationMonths: 6,
+    mode: 'Workshop Hands-on Machine Shift',
+    description: 'Learn G-code & M-code programming, Siemens and Fanuc controllers, tool offset calibration, and precision aerospace tolerance inspection.',
+    stipend: '₹13,500 / month',
+    stipendAmount: 13500,
+    placementCTC: '₹3.6L - ₹5.4L / yr',
+    minEligibility: '10th / ITI Machinist / Fitter',
+    recruiters: ['L&T', 'Godrej Aerospace', 'Bharat Forge', 'Siemens India'],
+    activeHubs: ['Pune', 'Indore', 'Coimbatore', 'Jaipur'],
+    certification: 'Capital Goods SSC Aligned • Level 5',
+    curriculum: [
+      { step: 1, title: 'Engineering Drawings & GD&T Standards', detail: 'Blueprint reading, coordinate measuring systems, ISO tolerance classes.' },
+      { step: 2, title: 'Fanuc & Siemens Controller Programming', detail: 'Canned cycles, G70-G76, manual data input, dry-run tool simulations.' },
+      { step: 3, title: '4-Axis VMC Machining Practice', detail: 'Hydraulic fixture setups, carbide insert wear monitoring, coolant filtration.' },
+      { step: 4, title: 'CMM Metrology & Quality Audit', detail: 'Coordinate Measuring Machine probe calibration, SPC process capability charts.' }
+    ],
+    seatsAvailable: 14
+  },
+  {
+    id: 6,
+    title: 'Commercial Drone Assembly, Telemetry & DGCA Pilot Prep',
+    slug: 'commercial-drone-assembly-pilot',
+    sector: 'logistics',
+    sectorLabel: 'Supply Chain, Drone & Robotics',
+    badge: 'Kisan & Logistics Drone Mission',
+    duration: '4 Months',
+    durationMonths: 4,
+    mode: 'Outdoor Field Flights & Hangar Lab',
+    description: 'Assemble enterprise quadcopters and hexacopters, solder avionics flight controllers, tune ArduPilot/PX4 telemetry, and prepare for DGCA Remote Pilot Certification.',
+    stipend: '₹12,500 / month',
+    stipendAmount: 12500,
+    placementCTC: '₹4.0L - ₹6.2L / yr',
+    minEligibility: '12th Pass / ITI Electronics',
+    recruiters: ['Garuda Aerospace', 'IdeaForge', 'Skye Air', 'Marut Drones'],
+    activeHubs: ['Indore', 'Jaipur', 'Lucknow', 'Coimbatore'],
+    certification: 'DGCA Compliant Syllabus • Aerospace SSC',
+    curriculum: [
+      { step: 1, title: 'Airframe Carbon Mechanics & ESC Soldering', detail: 'Brushless motor KV pairing, electronic speed controllers, LiPo battery safety.' },
+      { step: 2, title: 'Pixhawk & Mission Planner Avionics', detail: 'GPS compass calibration, failsafe RTL triggers, 433MHz telemetry links.' },
+      { step: 3, title: 'Agricultural Spray & LiDAR Payloads', detail: 'Centrifugal spray nozzles, multispectral camera mapping, GIS ortho-mosaics.' },
+      { step: 4, title: 'Simulator Hours & Field Flight Exams', detail: '50 logged flight hours on DGCA certified micro and small category drones.' }
+    ],
+    seatsAvailable: 10
+  }
+];
+
+const seedMentors = [
+  {
+    id: 1,
+    name: 'Rajeshwari Sundaram',
+    title: 'Lead EV Diagnostics Specialist',
+    company: 'Ather Energy',
+    previousCompany: 'Ex-Mahindra Electric',
+    sector: 'ev',
+    experience: '8+ years exp',
+    experienceYears: 8,
+    rating: 4.9,
+    sessionsCount: 124,
+    languages: ['Hindi', 'Tamil', 'English'],
+    bio: 'Pioneered rapid diagnostics protocols for commercial 2-wheeler EV fleets across South India. Mentored 200+ diploma apprentices into Tier-1 EV manufacturing plant roles.',
+    avatarUrl: '/assets/young_woman_headshot.png',
+    isTopMentor: true,
+    isOnline: true,
+    availableSlots: ['Today 6:00 PM', 'Tomorrow 11:00 AM', 'Saturday 4:00 PM'],
+    topics: ['Battery Pack Teardown', 'CAN Bus Troubleshooting', 'Interview Mock Drills']
+  },
+  {
+    id: 2,
+    name: 'Vikramaditya Sengupta',
+    title: 'Head of Plant Talent & Plant Operations',
+    company: 'Tata Motors',
+    previousCompany: 'Ex-Ashok Leyland',
+    sector: 'cnc',
+    experience: '14+ years exp',
+    experienceYears: 14,
+    rating: 4.95,
+    sessionsCount: 310,
+    languages: ['Hindi', 'Bengali', 'English'],
+    bio: 'Oversees apprentice intake and plant technician readiness across Tata Motors Pune & Pantnagar hubs. Expert in precision automation, shopfloor safety, and wage progression.',
+    avatarUrl: '/assets/senior_engineer_headshot.png',
+    isTopMentor: true,
+    isOnline: true,
+    availableSlots: ['Tomorrow 5:00 PM', 'Friday 7:00 PM', 'Sunday 10:00 AM'],
+    topics: ['Shopfloor Culture', 'Apprenticeship Conversion to Permanent', 'Salary Negotiation']
+  },
+  {
+    id: 3,
+    name: 'Aditi Verma',
+    title: 'Senior EV Powertrain & BMS Lead',
+    company: 'Tata Motors SME',
+    previousCompany: 'Ex-Bosch India',
+    sector: 'ev',
+    experience: '7+ years exp',
+    experienceYears: 7,
+    rating: 4.9,
+    sessionsCount: 185,
+    languages: ['Hindi', 'English'],
+    bio: 'Chief evaluator for national automotive technician benchmarks. Conducts realistic scenario-based voice interviews covering thermal runaway, battery balancing, and 1000V PPE.',
+    avatarUrl: '/assets/young_woman_headshot.png',
+    isTopMentor: true,
+    isOnline: true,
+    availableSlots: ['Today 7:30 PM', 'Thursday 6:00 PM', 'Saturday 2:00 PM'],
+    topics: ['AI Mock Interview Room', 'BMS Fault Analysis', 'High-Voltage Safety Checks']
+  },
+  {
+    id: 4,
+    name: 'Anand Deshmukh',
+    title: 'Principal Automation & Robotics Engineer',
+    company: 'Siemens India',
+    previousCompany: 'Ex-L&T Heavy Engineering',
+    sector: 'cnc',
+    experience: '11+ years exp',
+    experienceYears: 11,
+    rating: 4.88,
+    sessionsCount: 92,
+    languages: ['Marathi', 'Hindi', 'English'],
+    bio: 'Specialist in CNC multi-axis synchronization and Industry 4.0 PLC lines. Guiding polytechnic students to crack manufacturing interviews with zero prior corporate exposure.',
+    avatarUrl: '/assets/male_mentor_headshot.png',
+    isTopMentor: false,
+    isOnline: true,
+    availableSlots: ['Wednesday 8:00 PM', 'Saturday 11:30 AM'],
+    topics: ['Siemens 840D Controller', 'Tool Path Optimization', 'Polytechnic Career Transition']
+  },
+  {
+    id: 5,
+    name: 'Preeti Nair',
+    title: 'Senior Clinical Specialist & AHA Lead',
+    company: 'Apollo Hospitals',
+    previousCompany: 'Ex-Fortis Healthcare',
+    sector: 'health',
+    experience: '9+ years exp',
+    experienceYears: 9,
+    rating: 4.92,
+    sessionsCount: 140,
+    languages: ['Hindi', 'Tamil', 'English'],
+    bio: 'National American Heart Association Basic Life Support certified coach. Trained 350+ rural medical technicians in dialysis catheter care and critical care triage.',
+    avatarUrl: '/assets/young_woman_headshot.png',
+    isTopMentor: true,
+    isOnline: false,
+    availableSlots: ['Thursday 4:00 PM', 'Friday 5:00 PM'],
+    topics: ['Hemodialysis Complications', 'Hospital Interview Etiquette', 'DigiLocker Verification']
+  },
+  {
+    id: 6,
+    name: 'Rameshwar Patel',
+    title: 'Chief Solar Microgrid Engineer',
+    company: 'Adani Solar EPC',
+    previousCompany: 'Ex-MNRE Project Cell',
+    sector: 'solar',
+    experience: '10+ years exp',
+    experienceYears: 10,
+    rating: 4.85,
+    sessionsCount: 76,
+    languages: ['Hindi', 'Gujarati', 'English'],
+    bio: 'Executed 120+ MW utility and commercial rooftop solar farms across Rajasthan and Gujarat. Passioned about training Tier-3 village youth into licensed rooftop solar contractors.',
+    avatarUrl: '/assets/male_mentor_headshot.png',
+    isTopMentor: false,
+    isOnline: true,
+    availableSlots: ['Today 8:00 PM', 'Sunday 4:00 PM'],
+    topics: ['PM Surya Ghar Subsidies', 'Net Metering Approvals', 'Inverter Sizing Calculations']
+  }
+];
+
+const seedQuestions = [
+  {
+    id: 1,
+    questionNumber: 1,
+    totalQuestions: 6,
+    role: 'EV Battery Diagnostic & BMS Tech Lead (Tata Motors Prep)',
+    interviewer: {
+      name: 'Aditi Verma',
+      title: 'Senior EV Powertrain & Battery Diagnostics Lead',
+      companyTag: 'Tata Motors SME',
+      avatarUrl: '/assets/young_woman_headshot.png'
+    },
+    questionText: 'Explain how you identify cell imbalance in a 48V Lithium-ion battery pack using a BMS telemetry log. What immediate corrective safety steps would you take before opening the enclosure?',
+    translationHindi: '48V लीथियम-आयन बैटरी पैक में BMS टेलीमेट्री लॉग के ज़रिए सेल इम्बैलेंस (Cell Imbalance) की पहचान कैसे करेंगे? एनक्लोज़र खोलने से पहले आप कौन-से प्राथमिक सुरक्षा कदम उठाएंगे?',
+    audioDuration: '0:18s',
+    competencyAnchors: [
+      'Thermal Runaway Protocol',
+      'Multimeter & CAN Log Delta (>30mV)',
+      '1000V High-Voltage PPE & Lock-Out'
+    ],
+    hint: 'Begin your answer by defining the tolerable voltage variance across cells (±20mV to 50mV). Mention pulling real-time CAN bus telemetry, checking cell temperatures for delta > 3°C, verifying BMS auto-balancing status, and donning Class 0 (1000V rated) rubber gloves before physical unbolting.',
+    recommendedDurationSeconds: 180,
+    sampleGoodAnswer: 'First, I examine the CAN bus telemetry logs for delta V exceeding 30mV across series cells and inspect temperature differentials greater than 3 degrees Celsius. Before any physical contact, I verify the battery isolator switch is locked out, check with a calibrated high-voltage multimeter that residual DC bus voltage is under 5V, and put on certified Class 0 1000V PPE gloves and eye protection.'
+  }
+];
+
+const seedApplications = [
+  {
+    id: 'UDAAN-2025-8492',
+    fullName: 'Ramesh Kumar Patel',
+    phone: '9876543210',
+    hub: 'Jaipur Innovation Lab (Rajasthan)',
+    trade: 'Electric Vehicle (EV) Powertrain & Battery Tech',
+    education: '12th Standard',
+    tokenId: 'UDAAN-2025-8492',
+    status: 'PROVISIONAL_RESERVED',
+    createdAt: new Date().toISOString()
+  },
+  {
+    id: 'UDAAN-2025-3914',
+    fullName: 'Pooja Sharma',
+    phone: '9823456781',
+    hub: 'Indore Skill Park (Madhya Pradesh)',
+    trade: 'Solar PV Rooftop System Engineer',
+    education: 'ITI Diploma',
+    tokenId: 'UDAAN-2025-3914',
+    status: 'COUNSELOR_ASSIGNED',
+    createdAt: new Date(Date.now() - 3600000 * 5).toISOString()
+  }
+];
+
+module.exports = {
+  seedTracks,
+  seedMentors,
+  seedQuestions,
+  seedApplications
+};

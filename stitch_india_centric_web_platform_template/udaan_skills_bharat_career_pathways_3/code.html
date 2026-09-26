@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}
+::-webkit-scrollbar{display:none;}
+
+/* Keyframe animations and interactive enhancements */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.45); }
+  50% { box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
+}
+@keyframes liveGreenPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); }
+  50% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+}
+@keyframes floatSubtle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+@keyframes shineSweep {
+  0% { transform: translateX(-100%) rotate(25deg); }
+  100% { transform: translateX(200%) rotate(25deg); }
+}
+@keyframes soundWave {
+  0%, 100% { height: 4px; }
+  50% { height: 16px; }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.animate-float {
+  animation: floatSubtle 4s ease-in-out infinite;
+}
+.pulse-glow-red {
+  animation: pulseGlow 2s infinite;
+}
+.live-pulse-green {
+  animation: liveGreenPulse 2.2s infinite;
+}
+
+/* Card lift and smooth transition utilities */
+.interactive-card {
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s ease;
+  will-change: transform, box-shadow;
+}
+.interactive-card:hover {
+  transform: translateY(-6px) scale(1.01);
+}
+
+/* Shimmer Button */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(60deg, transparent 30%, rgba(255, 255, 255, 0.22) 50%, transparent 70%);
+  transform: translateX(-100%) rotate(25deg);
+  transition: none;
+}
+.btn-shimmer:hover::after {
+  animation: shineSweep 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Equalizer Bars for Audio Player */
+.eq-bar {
+  width: 3px;
+  background-color: currentColor;
+  border-radius: 9999px;
+  animation: soundWave 1.2s ease-in-out infinite;
+}
+.eq-bar:nth-child(2) { animation-delay: 0.2s; }
+.eq-bar:nth-child(3) { animation-delay: 0.4s; }
+.eq-bar:nth-child(4) { animation-delay: 0.1s; }
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-variant":"#e4e2df","inverse-on-surface":"#f2f0ed","secondary":"#ac3311","on-primary-fixed":"#0d1a39","surface-container-highest":"#e4e2df","surface-tint":"#525d80","primary-fixed":"#dae2ff","on-error":"#ffffff","background":"#fbf9f6","on-primary":"#ffffff","tertiary-container":"#00312d","primary":"#081534","on-secondary-fixed":"#3c0800","surface-dim":"#dbdad7","on-tertiary-container":"#48a097","error":"#ba1a1a","tertiary-fixed":"#9cf2e8","inverse-primary":"#bac5ee","tertiary":"#001a18","surface-bright":"#fbf9f6","on-secondary-container":"#651400","surface-container":"#efeeeb","surface-container-low":"#f5f3f0","primary-fixed-dim":"#bac5ee","on-tertiary-fixed-variant":"#00504a","surface":"#fbf9f6","on-tertiary":"#ffffff","on-surface-variant":"#45464e","outline":"#76777f","primary-container":"#1e2a4a","on-tertiary-fixed":"#00201d","on-surface":"#1b1c1a","on-primary-fixed-variant":"#3a4667","tertiary-fixed-dim":"#80d5cb","on-background":"#1b1c1a","on-primary-container":"#8691b7","on-error-container":"#93000a","secondary-fixed-dim":"#ffb4a1","error-container":"#ffdad6","secondary-fixed":"#ffdbd1","surface-container-high":"#eae8e5","inverse-surface":"#30312f","on-secondary-fixed-variant":"#881f00","secondary-container":"#ff6e48","surface-container-lowest":"#ffffff","on-secondary":"#ffffff","outline-variant":"#c6c6cf"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-xl":"2rem","space-sm":"0.5rem","space-md":"1rem",margin:"1rem","space-lg":"1.5rem","margin-desktop":"2.5rem","gutter-desktop":"1.5rem",gutter:"1rem","space-xs":"0.25rem"},fontFamily:{"headline-lg":["Plus Jakarta Sans"],"label-caps":["Plus Jakarta Sans"],"title-md":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"label-salary":["Plus Jakarta Sans"],"body-md":["Inter"],"body-lg":["Inter"],"display-hero":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"display-hero-mobile":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"body-sm":["Inter"]},fontSize:{"headline-lg":["32px",{lineHeight:"40px",fontWeight:"700"}],"label-caps":["11px",{lineHeight:"14px",fontWeight:"700"}],"title-md":["18px",{lineHeight:"24px",fontWeight:"600"}],"headline-lg-mobile":["26px",{lineHeight:"34px",fontWeight:"700"}],"label-salary":["15px",{lineHeight:"20px",fontWeight:"700"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}],"display-hero":["48px",{lineHeight:"56px",fontWeight:"800"}],"label-md":["13px",{lineHeight:"16px",fontWeight:"600"}],"headline-md":["24px",{lineHeight:"32px",fontWeight:"700"}],"display-hero-mobile":["34px",{lineHeight:"42px",fontWeight:"800"}],"headline-sm":["20px",{lineHeight:"28px",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"18px",fontWeight:"400"}]}}}};</script></head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-secondary-fixed selection:text-secondary"><header class="fixed top-0 left-0 right-0 z-50 shadow-[0_1px_8px_rgba(0,0,0,0.04)] transition-all duration-300" id="main-header"><div class="bg-primary text-on-primary py-1.5 px-6 lg:px-12 transition-all"><div class="max-w-7xl mx-auto flex items-center justify-between font-body-sm text-body-sm"><div class="flex items-center space-x-2 truncate"><span class="truncate font-medium">🚀 Admissions open for Summer 2025 Cohort across 42 Bharat Tech Hubs • 100% Placement Guarantee • NSDC Aligned</span><span class="hidden md:inline text-outline-variant">|</span><span class="hidden md:inline text-on-primary-fixed">Toll-Free Guidance: 1800-890-UDAAN</span></div><div class="flex items-center space-x-1.5 shrink-0 pl-4 font-label-caps text-label-caps tracking-wider" id="lang-switcher"><button class="hover:text-primary-fixed transition-colors font-bold text-on-primary active-lang" onclick="switchLanguage(this, 'en')" type="button">English</button><span class="text-outline-variant">|</span><button class="text-surface-variant hover:text-on-primary transition-colors" onclick="switchLanguage(this, 'hi')" type="button">हिन्दी</button><span class="text-outline-variant">|</span><button class="text-surface-variant hover:text-on-primary transition-colors" onclick="switchLanguage(this, 'ta')" type="button">தமிழ்</button></div></div></div><div class="h-20 bg-surface/90 backdrop-blur-xl px-6 lg:px-12 border-b border-surface-container/60"><div class="max-w-7xl mx-auto h-full flex items-center justify-between gap-4"><div class="flex items-center gap-3 shrink-0 group cursor-pointer"><img alt="Udaan Skills Logo" class="h-8 w-auto object-contain transition-transform group-hover:scale-105 duration-200" src="https://lh3.googleusercontent.com/aida/AEtjO1VBpmT0UI9RnldZfYB2GjAT0GNGpwrt_JBvM4vkd8CZdpCMq_iqtUo8d6fNaBtLilqTQQUiji73AEkk8wQbY2dW1eHyquNImn7OrrNv0d5xucutoC8YuUHtdYeat8qnvyRjPQs_IPsGE26kcyskH38A1nmQbsCv0F1CtkFxl9gfC0CaF5wRwax9WozDFZHiU2NkTU9MoPtihUFAczDN8WePl6v9ZU0804PesdEqt71T6WIK6VQN55bjRV8"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm tracking-tight text-primary leading-none group-hover:text-secondary transition-colors">Udaan Skills</span><span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest leading-tight mt-0.5">Bharat Career Mission</span></div></div><nav class="hidden xl:flex items-center gap-1" data-active-classes="bg-primary-container text-on-primary font-title-md rounded-lg"><a aria-current="page" class="px-3 py-2 transition-all bg-primary-container text-on-primary font-title-md rounded-lg shadow-sm" data-path="home" href="#">Home</a><div class="relative group"><a class="inline-flex items-center px-3 py-2 font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all rounded-lg" data-path="programs-and-trades" href="#programs">Programs &amp; Trades <span class="material-symbols-outlined text-body-md ml-1 group-hover:rotate-180 transition-transform">expand_more</span></a></div><div class="relative group"><a class="inline-flex items-center px-3 py-2 font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all rounded-lg" data-path="explore-hubs" href="#hubs">Explore Hubs <span class="material-symbols-outlined text-body-md ml-1 group-hover:rotate-180 transition-transform">expand_more</span></a></div><a class="px-3 py-2 font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all rounded-lg" data-path="success-stories" href="#success-stories">Success Stories</a><a class="px-3 py-2 font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all rounded-lg" data-path="hiring-partners" href="#partners">Hiring Partners</a><a class="px-3 py-2 font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all rounded-lg" data-path="career-guidance-faq" href="#faqs">Career Guidance (FAQ)</a></nav><div class="flex items-center gap-3 shrink-0"><div class="hidden lg:flex items-center bg-surface-container-low px-3 py-1.5 rounded-lg text-on-surface-variant gap-2 ring-1 ring-outline-variant/30 focus-within:ring-2 focus-within:ring-primary focus-within:bg-surface transition-all"><span class="material-symbols-outlined text-body-md text-outline">search</span><input class="bg-transparent border-0 outline-none font-body-sm text-body-sm text-on-surface placeholder:text-outline w-44 xl:w-52" placeholder="Search courses, trades, cities..." type="text"/></div><a class="hidden sm:inline-flex items-center justify-center px-4 py-2 rounded-lg font-label-md text-label-md text-primary bg-surface-container-lowest shadow-[0_1px_3px_rgba(30,42,74,0.04)] hover:bg-surface-container-high hover:shadow-md transition-all active:scale-95" data-path="find-my-course" href="#programs">Find My Course</a><a class="btn-shimmer inline-flex items-center justify-center px-4 py-2 rounded-lg font-label-md text-label-md text-on-secondary bg-secondary hover:bg-on-secondary-container hover:shadow-lg transition-all active:scale-95 shadow-[0_1px_3px_rgba(30,42,74,0.08)]" data-path="join-cohort" href="#quick-apply">Join Cohort</a><div class="flex items-center gap-2.5 pl-2 ml-1"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-secondary/30 hover:ring-secondary transition-all" src="https://lh3.googleusercontent.com/aida/AEtjO1U0p90FM66cRkxiG8520M_eFas-3DCQ3hgaskRIYlrjB8ltx2pH_x44yIrNmDkz3mxazQ4P_SiLLVGlaV4X9EE63egHfzR0k5CApMrvAxH-dl_QD9Nja-X-YHVPbdZObriX3ZnIhVwMJKdzsQnXYni7cTiiAciERxhaLinhmFHbuQfSO_z3nGztmIfbBFlFxLq9OXgS8y61qqV9P8hYFNcFnhC-70R0g7XaSzbB4y0qeKmbpyuza6b27nw"/><div class="hidden 2xl:flex flex-col text-left leading-tight"><span class="font-label-md text-label-md text-on-surface">Pooja Sharma</span><span class="font-label-caps text-label-caps text-secondary">Jaipur Hub</span></div></div></div></div></div></header><main class="w-full pt-28 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- SECTION 1: HERO & TRUST ACCELERATOR -->
+<section class="relative overflow-hidden bg-surface pt-6 pb-16 lg:pb-24">
+<!-- Ambient Indian Geometric Pattern & Subtle Light Accents -->
+<div class="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-secondary/10 blur-3xl pointer-events-none animate-float"></div>
+<div class="absolute top-1/2 -left-20 w-80 h-80 rounded-full bg-primary/10 blur-2xl pointer-events-none animate-float" style="animation-delay: -2s;"></div>
+<div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+<!-- Left Hero Content (7 Cols) -->
+<div class="lg:col-span-7 space-y-6 animate-fade-in-up">
+<!-- Notification Pill -->
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container text-primary font-label-caps text-label-caps tracking-wider shadow-sm hover:shadow transition-all">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary pulse-glow-red"></span>
+<span class="font-bold text-secondary uppercase">Mission Bharat 2025</span>
+<span class="text-outline">/</span>
+<span class="text-on-surface-variant font-medium">Summer Batch: July 15 • <span class="font-bold text-secondary">85 Seats Left</span></span>
+</div>
+<!-- Master Headline -->
+<h1 class="font-display-hero text-display-hero-mobile sm:text-display-hero text-primary tracking-tight leading-tight animate-fade-in-up" style="animation-delay: 0.1s;">
+            Hunar Se Hogi Pehchan.<br/>
+<span class="text-secondary bg-clip-text bg-gradient-to-r from-secondary to-secondary-container">Bharat's Premier</span> Career Launchpad.
+          </h1>
+<!-- Body Copy -->
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s;">
+            Fast-track 4 to 9-month industry-certified vocational diplomas and paid apprenticeships designed specifically for ambitious youth in Tier-2 and Tier-3 India. 100% verified placement record across 380+ national employers.
+          </p>
+<!-- Dual Call to Actions -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2 animate-fade-in-up" style="animation-delay: 0.3s;">
+<a class="btn-shimmer inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-secondary text-on-secondary font-label-md text-label-md shadow-md hover:bg-on-secondary-container hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all group" href="#quick-apply">
+<span>Explore 2025 Cohorts (Free Counselling)</span>
+<span class="material-symbols-outlined text-title-md group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+<a class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-surface-container-lowest text-primary font-label-md text-label-md shadow-sm ring-1 ring-outline-variant/30 hover:bg-surface-container hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 transition-all group" href="#roi-calculator">
+<span class="material-symbols-outlined text-title-md text-secondary group-hover:scale-110 transition-transform">calculate</span>
+<span>Calculate Starting Salary (₹)</span>
+</a>
+</div>
+<!-- Bilingual Assurance & Toll Free -->
+<div class="flex flex-wrap items-center gap-4 text-xs font-body-sm text-on-surface-variant pt-1 animate-fade-in-up" style="animation-delay: 0.35s;">
+<span class="flex items-center gap-1.5 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-body-md text-on-tertiary-container">check_circle</span>
+              हिन्दी एवं क्षेत्रीय भाषाओं में परामर्श उपलब्ध
+            </span>
+<span class="text-outline-variant">•</span>
+<a class="flex items-center gap-1.5 hover:text-secondary transition-colors" href="tel:18008908322">
+<span class="material-symbols-outlined text-body-md text-primary">call</span>
+              Toll-Free Helpline: <strong>1800-890-UDAAN</strong>
+</a>
+</div>
+<!-- Education Fast Track Selectors -->
+<div class="pt-4 animate-fade-in-up" style="animation-delay: 0.4s;">
+<p class="font-label-caps text-label-caps text-outline uppercase tracking-wider mb-2.5">Quick Filter by Qualification:</p>
+<div class="flex flex-wrap gap-2" id="hero-qualification-filters">
+<button class="qual-btn px-3.5 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high font-label-md text-label-md text-primary transition-all active:scale-95" onclick="selectHeroQualification(this, '10th')">10th Pass</button>
+<button class="qual-btn px-3.5 py-1.5 rounded-full bg-primary text-on-primary font-label-md text-label-md transition-all shadow-sm active:scale-95 ring-2 ring-primary/20" onclick="selectHeroQualification(this, '12th')">12th Standard</button>
+<button class="qual-btn px-3.5 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high font-label-md text-label-md text-primary transition-all active:scale-95" onclick="selectHeroQualification(this, 'iti')">ITI / Polytechnic</button>
+<button class="qual-btn px-3.5 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high font-label-md text-label-md text-primary transition-all active:scale-95" onclick="selectHeroQualification(this, 'grad')">BA / B.Com / B.Sc Grad</button>
+</div>
+</div>
+</div>
+<!-- Right Hero Visual Card (5 Cols) -->
+<div class="lg:col-span-5 relative animate-fade-in-up" style="animation-delay: 0.25s;">
+<div class="interactive-card relative bg-surface-container-lowest rounded-xl shadow-xl overflow-hidden p-3.5 space-y-3.5 border border-surface-variant/40">
+<!-- Live Workshop Header Pill -->
+<div class="flex items-center justify-between px-3.5 py-2.5 bg-surface-container-low rounded-lg">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-500 live-pulse-green"></span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-primary font-bold">Live Workshop In Session</span>
+</div>
+<span class="font-label-caps text-label-caps text-secondary font-bold px-2 py-0.5 bg-secondary-fixed/50 rounded">Indore Hub</span>
+</div>
+<!-- Visual Imagery Showcase -->
+<div class="relative h-64 sm:h-72 w-full rounded-lg overflow-hidden bg-surface-container group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Indian youth apprentice in safety helmet and high-visibility vest working on a clean high-tech electric vehicle chassis diagnostics station in an illuminated vocational training workshop in Indore, modern Indian technical education vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB78XTL12vQRcwCwZ2L7MowfD1nHtIhCeDTFCm3-_PWFtO3RQX5wNgMNaa0dAtx3U003fDObOMh9BJz0YVKWjBpflYS00f9xcxgUorLCZVigCup7AkendfsCS_YWaDZURsrtcsxd7Udy6_VwcS5WJnlW5YsIKrGJFyIPk6iCMnNi1vRDSXRiSiehXl3BYCGL7RtfH1d43GwA0KhCkquVeEekszhXxKyWCNPjyyWdwhTJG21N9HZn9oB"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/85 via-primary/25 to-transparent"></div>
+<!-- Floating Placement Micro-Card on Image -->
+<div class="absolute bottom-3 left-3 right-3 p-3 rounded-lg bg-surface/95 backdrop-blur-md shadow-md flex items-center justify-between border border-surface-container/60 transition-transform duration-300 group-hover:translate-y-[-2px]">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center font-bold shadow-inner">
+<span class="material-symbols-outlined text-headline-sm">bolt</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary font-semibold">Solar &amp; EV Diagnostics Lab</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">42 Students in Practical Shift A</p>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded bg-secondary-fixed text-on-secondary-fixed font-label-caps text-label-caps font-bold uppercase shadow-sm">Active</span>
+</div>
+</div>
+<!-- Quick Live Feed Ticker -->
+<div class="p-3 bg-surface-container rounded-lg flex items-center justify-between transition-colors hover:bg-surface-container-high">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-title-md text-on-tertiary-container">verified</span>
+<span class="font-body-sm text-body-sm text-primary"><strong class="font-bold text-primary" id="hero-placed-count">842 learners</strong> placed this month</span>
+</div>
+<span class="font-label-salary text-label-salary text-secondary font-bold">₹4.6L Avg CTC</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Trust Badges Strip -->
+<div class="mt-12 pt-8 grid grid-cols-2 md:grid-cols-4 gap-4 bg-surface-container-lowest rounded-xl p-6 shadow-sm border border-surface-variant/30 animate-fade-in-up" style="animation-delay: 0.45s;">
+<div class="flex items-center gap-3 group cursor-default p-2 rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center shrink-0 text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-headline-sm">star</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-primary">4.8 / 5</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">34,200+ Alumni Reviews</div>
+</div>
+</div>
+<div class="flex items-center gap-3 group cursor-default p-2 rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center shrink-0 text-on-tertiary-container group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-headline-sm">payments</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-primary">₹4.6 Lakhs</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Average Starting CTC</div>
+</div>
+</div>
+<div class="flex items-center gap-3 group cursor-default p-2 rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center shrink-0 text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-headline-sm">shield</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-primary">NSDC Aligned</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Ministry of Skill Dev.</div>
+</div>
+</div>
+<div class="flex items-center gap-3 group cursor-default p-2 rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center shrink-0 text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-headline-sm">credit_score</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-primary">0% Skill Loans</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">NBFC Backed • Pay After Job</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: INTERACTIVE TRADE & CAREER PATHWAYS EXPLORER -->
+<section class="py-16 bg-surface-container-low" id="programs">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<!-- Section Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+<div class="space-y-2">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest font-bold">Bharat High-Growth Sectors</span>
+<h2 class="font-headline-lg text-headline-lg-mobile sm:text-headline-lg text-primary">In-Demand Vocational Trades Crafted with Industry Leaders</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+            Targeted curriculums updated monthly based on corporate hiring matrices. Every course includes hands-on lab training and guaranteed campus interviews.
+          </p>
+</div>
+<div class="shrink-0">
+<span class="font-body-sm text-body-sm text-on-surface-variant bg-surface-container-lowest px-3 py-1.5 rounded-full shadow-sm" id="trades-count-indicator">Showing 4 of 24 Verified Diplomas</span>
+</div>
+</div>
+<!-- Trade Categories Navigation Filter -->
+<div class="flex items-center gap-2 overflow-x-auto pb-4 mb-8" id="trade-sector-filters">
+<button class="sector-tab px-4 py-2 rounded-lg bg-primary text-on-primary font-label-md text-label-md whitespace-nowrap shadow-sm transition-all active:scale-95" onclick="filterSector(this, 'all')">All Trades (24)</button>
+<button class="sector-tab px-4 py-2 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container font-label-md text-label-md whitespace-nowrap shadow-sm transition-all active:scale-95" onclick="filterSector(this, 'ev')">EV &amp; Renewable Energy</button>
+<button class="sector-tab px-4 py-2 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container font-label-md text-label-md whitespace-nowrap shadow-sm transition-all active:scale-95" onclick="filterSector(this, 'it')">Digital &amp; IT Operations</button>
+<button class="sector-tab px-4 py-2 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container font-label-md text-label-md whitespace-nowrap shadow-sm transition-all active:scale-95" onclick="filterSector(this, 'health')">Healthcare &amp; Diagnostics</button>
+<button class="sector-tab px-4 py-2 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container font-label-md text-label-md whitespace-nowrap shadow-sm transition-all active:scale-95" onclick="filterSector(this, 'cnc')">Precision CNC &amp; Automation</button>
+<button class="sector-tab px-4 py-2 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container font-label-md text-label-md whitespace-nowrap shadow-sm transition-all active:scale-95" onclick="filterSector(this, 'logistics')">Supply Chain &amp; Logistics</button>
+</div>
+<!-- 4 Rich Trade Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="trade-cards-container">
+<!-- Card 1: Electric Vehicle -->
+<div class="trade-card interactive-card bg-surface-container-lowest rounded-xl p-6 shadow-sm hover:shadow-xl border border-surface-variant/30 flex flex-col justify-between space-y-6" data-sector="ev">
+<div class="space-y-4">
+<div class="flex items-start justify-between gap-4">
+<span class="px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-caps text-label-caps font-bold tracking-wide uppercase">
+                High Demand • 88% Placement in 60 Days
+              </span>
+<span class="font-label-caps text-label-caps text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-body-md text-secondary">schedule</span> 6 Months
+              </span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors">Electric Vehicle (EV) Powertrain &amp; Battery Diagnostics</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1.5">
+                Master lithium battery testing, BMS configuration, motor rewinding, and regenerative braking repair on actual 2-wheeler and commercial EV platforms.
+              </p>
+</div>
+<!-- Highlights Pill Matrix -->
+<div class="grid grid-cols-2 gap-3 pt-2">
+<div class="p-3 bg-surface-container-low rounded-lg transition-colors hover:bg-surface-container">
+<span class="font-label-caps text-label-caps text-outline uppercase block">Paid Apprenticeship</span>
+<span class="font-label-salary text-label-salary text-primary font-bold">₹12,000 / month</span>
+</div>
+<div class="p-3 bg-surface-container-low rounded-lg transition-colors hover:bg-surface-container">
+<span class="font-label-caps text-label-caps text-outline uppercase block">Expected Placement CTC</span>
+<span class="font-label-salary text-label-salary text-secondary font-bold">₹3.8L - ₹5.5L / yr</span>
+</div>
+</div>
+<!-- Recruiters & Hubs -->
+<div class="space-y-2 pt-1">
+<div class="flex items-center gap-2 text-xs font-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-body-sm text-secondary">corporate_fare</span>
+<span>Recruiters: <strong>Tata Motors, Ather Energy, Mahindra Electric</strong></span>
+</div>
+<div class="flex items-center gap-2 text-xs font-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-body-sm text-primary">location_on</span>
+<span>Active Hubs: Jaipur, Pune, Indore Innovation Labs</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 bg-surface-container-low/50 -mx-6 -mb-6 p-6 rounded-b-xl border-t border-surface-container">
+<span class="font-label-caps text-label-caps text-on-tertiary-container font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-base">verified</span> NSDC Level 4 Certified
+              </span>
+<a class="btn-shimmer px-4 py-2 bg-primary text-on-primary hover:bg-primary-container hover:shadow-md active:scale-95 rounded-lg font-label-md text-label-md transition-all inline-flex items-center gap-1.5 group" href="#quick-apply" onclick="preselectTrade('Electric Vehicle (EV) Powertrain &amp; Battery Tech')">
+              Apply For EV Batch
+              <span class="material-symbols-outlined text-body-md group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">north_east</span>
+</a>
+</div>
+</div>
+<!-- Card 2: Solar PV Rooftop -->
+<div class="trade-card interactive-card bg-surface-container-lowest rounded-xl p-6 shadow-sm hover:shadow-xl border border-surface-variant/30 flex flex-col justify-between space-y-6" data-sector="ev">
+<div class="space-y-4">
+<div class="flex items-start justify-between gap-4">
+<span class="px-3 py-1 rounded-full bg-surface-container text-primary font-label-caps text-label-caps font-bold tracking-wide uppercase">
+                Green Mission • MNRE Aligned
+              </span>
+<span class="font-label-caps text-label-caps text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-body-md text-secondary">schedule</span> 4 Months Hybrid
+              </span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors">Solar PV Rooftop System Engineer &amp; Grid Specialist</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1.5">
+                Covers solar array layout design, net-metering synchronization, high-voltage inverter maintenance, and on-site EPC safety compliance.
+              </p>
+</div>
+<div class="grid grid-cols-2 gap-3 pt-2">
+<div class="p-3 bg-surface-container-low rounded-lg transition-colors hover:bg-surface-container">
+<span class="font-label-caps text-label-caps text-outline uppercase block">On-Site Stipend</span>
+<span class="font-label-salary text-label-salary text-primary font-bold">₹10,500 / month</span>
+</div>
+<div class="p-3 bg-surface-container-low rounded-lg transition-colors hover:bg-surface-container">
+<span class="font-label-caps text-label-caps text-outline uppercase block">Placement Salary</span>
+<span class="font-label-salary text-label-salary text-secondary font-bold">₹3.2L - ₹4.8L / yr</span>
+</div>
+</div>
+<div class="space-y-2 pt-1">
+<div class="flex items-center gap-2 text-xs font-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-body-sm text-secondary">corporate_fare</span>
+<span>Recruiters: <strong>Adani Solar, Sterling &amp; Wilson, Loom Solar</strong></span>
+</div>
+<div class="flex items-center gap-2 text-xs font-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-body-sm text-primary">location_on</span>
+<span>Active Hubs: Lucknow, Nagpur, Jaipur Green Parks</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 bg-surface-container-low/50 -mx-6 -mb-6 p-6 rounded-b-xl border-t border-surface-container">
+<span class="font-label-caps text-label-caps text-on-tertiary-container font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-base">eco</span> PM Surya Ghar Yojana Ready
+              </span>
+<a class="btn-shimmer px-4 py-2 bg-primary text-on-primary hover:bg-primary-container hover:shadow-md active:scale-95 rounded-lg font-label-md text-label-md transition-all inline-flex items-center gap-1.5 group" href="#quick-apply" onclick="preselectTrade('Solar PV Rooftop System Engineer')">
+              Apply For Solar Batch
+              <span class="material-symbols-outlined text-body-md group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">north_east</span>
+</a>
+</div>
+</div>
+<!-- Card 3: Full Stack & Low Code -->
+<div class="trade-card interactive-card bg-surface-container-lowest rounded-xl p-6 shadow-sm hover:shadow-xl border border-surface-variant/30 flex flex-col justify-between space-y-6" data-sector="it">
+<div class="space-y-4">
+<div class="flex items-start justify-between gap-4">
+<span class="px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-label-caps text-label-caps font-bold tracking-wide uppercase">
+                Remote &amp; Regional Tech Hubs
+              </span>
+<span class="font-label-caps text-label-caps text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-body-md text-secondary">schedule</span> 7 Months Intensive
+              </span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors">Full-Stack Web &amp; Low-Code Business Solutions</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1.5">
+                Tailored for Tier-2 college graduates. Learn JavaScript, Python, PostgreSQL, REST APIs, plus Enterprise CRM configurations with 6 live client projects.
+              </p>
+</div>
+<div class="grid grid-cols-2 gap-3 pt-2">
+<div class="p-3 bg-surface-container-low rounded-lg transition-colors hover:bg-surface-container">
+<span class="font-label-caps text-label-caps text-outline uppercase block">Capstone Project Grant</span>
+<span class="font-label-salary text-label-salary text-primary font-bold">₹15,000 Milestone</span>
+</div>
+<div class="p-3 bg-surface-container-low rounded-lg transition-colors hover:bg-surface-container">
+<span class="font-label-caps text-label-caps text-outline uppercase block">Placement Salary</span>
+<span class="font-label-salary text-label-salary text-secondary font-bold">₹4.5L - ₹7.2L / yr</span>
+</div>
+</div>
+<div class="space-y-2 pt-1">
+<div class="flex items-center gap-2 text-xs font-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-body-sm text-secondary">corporate_fare</span>
+<span>Recruiters: <strong>Zoho, TCS iON, Infosys Springboard, InfoEdge</strong></span>
+</div>
+<div class="flex items-center gap-2 text-xs font-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-body-sm text-primary">location_on</span>
+<span>Active Hubs: Indore, Coimbatore, Patna, Lucknow Labs</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 bg-surface-container-low/50 -mx-6 -mb-6 p-6 rounded-b-xl border-t border-surface-container">
+<span class="font-label-caps text-label-caps text-on-tertiary-container font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-base">code</span> NASSCOM FutureSkills Prime
+              </span>
+<a class="btn-shimmer px-4 py-2 bg-primary text-on-primary hover:bg-primary-container hover:shadow-md active:scale-95 rounded-lg font-label-md text-label-md transition-all inline-flex items-center gap-1.5 group" href="#quick-apply" onclick="preselectTrade('Full-Stack Web &amp; Low-Code Solutions')">
+              Apply For IT Batch
+              <span class="material-symbols-outlined text-body-md group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">north_east</span>
+</a>
+</div>
+</div>
+<!-- Card 4: Healthcare & Dialysis -->
+<div class="trade-card interactive-card bg-surface-container-lowest rounded-xl p-6 shadow-sm hover:shadow-xl border border-surface-variant/30 flex flex-col justify-between space-y-6" data-sector="health">
+<div class="space-y-4">
+<div class="flex items-start justify-between gap-4">
+<span class="px-3 py-1 rounded-full bg-surface-container text-primary font-label-caps text-label-caps font-bold tracking-wide uppercase">
+                Healthcare Council Certified
+              </span>
+<span class="font-label-caps text-label-caps text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-body-md text-secondary">schedule</span> 9 Months Diploma
+              </span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors">Emergency Medical &amp; Dialysis Technician</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1.5">
+                Hospital emergency triage protocols, hemodialysis machine maintenance, vital parameter telemetry, and certified clinical bedside assistance.
+              </p>
+</div>
+<div class="grid grid-cols-2 gap-3 pt-2">
+<div class="p-3 bg-surface-container-low rounded-lg transition-colors hover:bg-surface-container">
+<span class="font-label-caps text-label-caps text-outline uppercase block">Hospital Clinical Duty</span>
+<span class="font-label-salary text-label-salary text-primary font-bold">₹11,000 / month</span>
+</div>
+<div class="p-3 bg-surface-container-low rounded-lg transition-colors hover:bg-surface-container">
+<span class="font-label-caps text-label-caps text-outline uppercase block">Placement Salary</span>
+<span class="font-label-salary text-label-salary text-secondary font-bold">₹3.5L - ₹5.0L / yr</span>
+</div>
+</div>
+<div class="space-y-2 pt-1">
+<div class="flex items-center gap-2 text-xs font-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-body-sm text-secondary">corporate_fare</span>
+<span>Recruiters: <strong>Apollo Health, Fortis, Max Healthcare, Medanta</strong></span>
+</div>
+<div class="flex items-center gap-2 text-xs font-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-body-sm text-primary">location_on</span>
+<span>Active Hubs: Patna, Varanasi, Bhopal Hospital Networks</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 bg-surface-container-low/50 -mx-6 -mb-6 p-6 rounded-b-xl border-t border-surface-container">
+<span class="font-label-caps text-label-caps text-on-tertiary-container font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-base">medical_services</span> AHA First Responder Certified
+              </span>
+<a class="btn-shimmer px-4 py-2 bg-primary text-on-primary hover:bg-primary-container hover:shadow-md active:scale-95 rounded-lg font-label-md text-label-md transition-all inline-flex items-center gap-1.5 group" href="#quick-apply" onclick="preselectTrade('Emergency Medical &amp; Dialysis Technician')">
+              Apply For Health Batch
+              <span class="material-symbols-outlined text-body-md group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">north_east</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: THE UDAAN ADVANTAGE (PROBLEM VS SOLUTION & 4-STEP JOURNEY) -->
+<section class="py-20 bg-surface">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<!-- Section Tag -->
+<div class="text-center max-w-3xl mx-auto space-y-3 mb-16">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest font-bold">Rethinking Higher Education for Bharat</span>
+<h2 class="font-headline-lg text-headline-lg-mobile sm:text-headline-lg text-primary">Why Traditional Degrees Fall Short vs The Udaan Applied Model</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Millions of college graduates in Tier-2 and Tier-3 towns hold degrees that corporate recruiters cannot hire. We built an intentional bridge from day one.
+        </p>
+</div>
+<!-- Problem vs Solution Comparison Card Mosaic -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
+<!-- Traditional Degree (The Pain) -->
+<div class="interactive-card p-8 rounded-xl bg-surface-container-high space-y-6 border border-surface-container-highest">
+<div class="flex items-center gap-3 text-error">
+<span class="material-symbols-outlined text-headline-md">cancel</span>
+<h3 class="font-title-md text-title-md text-primary">The Traditional Degree Route</h3>
+</div>
+<ul class="space-y-4 font-body-md text-body-md text-on-surface-variant">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-error text-title-md shrink-0 mt-0.5">close</span>
+<span><strong>Outdated 10-year syllabus:</strong> Memorizing theory diagrams without ever handling live diagnostic kits or industrial machinery.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-error text-title-md shrink-0 mt-0.5">close</span>
+<span><strong>High financial burden:</strong> ₹2.5L to ₹4L invested with zero income for 3–4 continuous years.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-error text-title-md shrink-0 mt-0.5">close</span>
+<span><strong>Zero placement accountability:</strong> Handing a paper certificate with no interview drive or recruiter backing.</span>
+</li>
+</ul>
+<div class="p-4 rounded-lg bg-surface-container-highest text-on-surface-variant text-xs font-body-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-outline">info</span>
+<span>Stat: 48.7% of general degree graduates in India are currently unemployable according to India Skills Report 2024.</span>
+</div>
+</div>
+<!-- Udaan Model (The Advantage) -->
+<div class="interactive-card p-8 rounded-xl bg-primary text-on-primary space-y-6 shadow-xl relative overflow-hidden">
+<div class="absolute -right-12 -bottom-12 w-48 h-48 bg-secondary/20 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-center gap-3 text-secondary-fixed">
+<span class="material-symbols-outlined text-headline-md">check_circle</span>
+<h3 class="font-title-md text-title-md text-on-primary">The Udaan Applied Vocational Engine</h3>
+</div>
+<ul class="space-y-4 font-body-md text-body-md text-primary-fixed">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-on-tertiary-container text-title-md shrink-0 mt-0.5">done_all</span>
+<span><strong class="text-on-primary">70% Practical Lab Shift:</strong> Work with the exact equipment, BMS tools, and software used on Tata, Adani, or Zoho factory floors.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-on-tertiary-container text-title-md shrink-0 mt-0.5">done_all</span>
+<span><strong class="text-on-primary">Earn while learning:</strong> Receive an official monthly stipend of ₹10,000–₹15,000 during your apprenticeship phase.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-on-tertiary-container text-title-md shrink-0 mt-0.5">done_all</span>
+<span><strong class="text-on-primary">Guaranteed Career Drives:</strong> Minimum 3 formal corporate interviews or full tuition reimbursement commitment.</span>
+</li>
+</ul>
+<div class="p-4 rounded-lg bg-primary-container text-primary-fixed text-xs font-body-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-on-tertiary-container">stars</span>
+<span>Proven Result: 94.2% placement rate across 42 Bharat Tech Hubs within 90 days of graduation.</span>
+</div>
+</div>
+</div>
+<!-- 4-Step Journey Infographic -->
+<div class="space-y-8">
+<h3 class="font-title-md text-title-md text-primary text-center">Your 4-Step Pathway from Small Town to High-Growth Career</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+<!-- Step 1 -->
+<div class="interactive-card p-6 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-lg border border-surface-variant/40 flex flex-col justify-between space-y-4 group">
+<div class="space-y-3">
+<span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-secondary text-on-secondary font-headline-sm text-headline-sm font-bold group-hover:scale-110 transition-transform">1</span>
+<h4 class="font-title-md text-title-md text-primary group-hover:text-secondary transition-colors">Aptitude &amp; Regional Counseling</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Take a 20-minute psychometric &amp; trade aptitude test in Hindi, Tamil, or English to identify your best-fit trade.
+              </p>
+</div>
+<span class="text-xs font-label-caps text-label-caps text-secondary font-semibold uppercase">100% Free • No Obligation</span>
+</div>
+<!-- Step 2 -->
+<div class="interactive-card p-6 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-lg border border-surface-variant/40 flex flex-col justify-between space-y-4 group">
+<div class="space-y-3">
+<span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary text-on-primary font-headline-sm text-headline-sm font-bold group-hover:scale-110 transition-transform">2</span>
+<h4 class="font-title-md text-title-md text-primary group-hover:text-secondary transition-colors">Hands-on Workshop Immersion</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Intensive 16–24 weeks training at a modern Udaan Hub with live machines, simulators, and English workplace communication.
+              </p>
+</div>
+<span class="text-xs font-label-caps text-label-caps text-primary font-semibold uppercase">70% Lab Time</span>
+</div>
+<!-- Step 3 -->
+<div class="interactive-card p-6 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-lg border border-surface-variant/40 flex flex-col justify-between space-y-4 group">
+<div class="space-y-3">
+<span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-tertiary-container text-on-tertiary-container font-headline-sm text-headline-sm font-bold group-hover:scale-110 transition-transform">3</span>
+<h4 class="font-title-md text-title-md text-primary group-hover:text-secondary transition-colors">Paid Corporate Apprenticeship</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Join a partnered enterprise (e.g., Tata, Ather, Apollo) for 2–3 months while earning monthly stipends to cover all living costs.
+              </p>
+</div>
+<span class="text-xs font-label-caps text-label-caps text-on-tertiary-container font-semibold uppercase">Earn ₹10k–15k/Mo</span>
+</div>
+<!-- Step 4 -->
+<div class="interactive-card p-6 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-lg border border-surface-variant/40 flex flex-col justify-between space-y-4 group">
+<div class="space-y-3">
+<span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-secondary text-on-secondary font-headline-sm text-headline-sm font-bold group-hover:scale-110 transition-transform">4</span>
+<h4 class="font-title-md text-title-md text-primary group-hover:text-secondary transition-colors">Offer Letter &amp; Graduation</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Attend dedicated Udaan Rojgar Melas with 15+ visiting corporate employers. Walk out with a formal appointment letter and DigiLocker cert.
+              </p>
+</div>
+<span class="text-xs font-label-caps text-label-caps text-secondary font-semibold uppercase">Minimum 3 Interviews</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 4: REAL SUCCESS STORIES (BHARAT'S RISING TALENT) -->
+<section class="py-20 bg-surface-container-low" id="success-stories">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<!-- Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+<div class="space-y-2">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest font-bold">Real Stories, Real Mobility</span>
+<h2 class="font-headline-lg text-headline-lg-mobile sm:text-headline-lg text-primary">From Small Town Ambition to National Industry Leaders</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+            Meet the youth who transformed their family livelihoods through applied vocational mastery at Udaan Skills hubs.
+          </p>
+</div>
+<a class="font-label-md text-label-md text-secondary hover:text-on-secondary-container inline-flex items-center gap-1 group transition-colors" href="#quick-apply">
+          Read All 800+ Verified Case Studies <span class="material-symbols-outlined text-body-md group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<!-- 3 Spotlight Cards -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Story 1 -->
+<div class="interactive-card bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl border border-surface-variant/30 flex flex-col justify-between group">
+<div>
+<div class="h-56 relative overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Portrait of a smiling young Indian male solar technician wearing a yellow safety hardhat and navy work shirt standing proudly next to rooftop photovoltaic solar panel installation under bright blue sky in Rajasthan." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6HfKlqXngP4AXmg2A4rf1GnL9vvuDgygoKlWKwgEMBi38XB3rsZQQQeaAujxFisgv7YC8eemdJQxPp10NDGKcAL4LXg2bHEIgfk1LFJ1l2evqBfn2G96G02wt_OSGRGD33Td-8PZpONa0ot36-VJAA4CMlw0ypiO1wJzWrBEIEaARaJ6fds77RvB2a8zj0GDKcuq54_boL6MgiA171BlIkXMNyL1uhlMqnjrPgm-qp0mN9OdyK5WA"/>
+<span class="absolute bottom-3 left-3 px-2.5 py-1 rounded bg-primary/90 backdrop-blur-md text-on-primary font-label-caps text-label-caps uppercase shadow">Sawai Madhopur, RJ</span>
+</div>
+<div class="p-6 space-y-4">
+<div>
+<h3 class="font-title-md text-title-md text-primary">Rahul Meena</h3>
+<p class="font-body-sm text-body-sm text-secondary font-medium">Senior Solar Commissioning Technician • Vikram Solar</p>
+</div>
+<!-- Journey Pill -->
+<div class="p-3 bg-surface-container-low rounded-lg space-y-1 font-body-sm text-body-sm">
+<div class="text-on-surface-variant"><span class="font-medium text-outline">Earlier:</span> Daily-wage grocery helper (₹6,500/mo)</div>
+<div class="text-primary font-bold"><span class="font-medium text-on-tertiary-container">Now:</span> ₹4.8 Lakhs / Year + ESI &amp; PF</div>
+</div>
+<blockquote class="font-body-md text-body-md text-on-surface-variant italic">
+                “My father was a farmer who couldn't afford college. Udaan's 0% EMI allowed me to finish the 4-month Solar course in Jaipur. Today, I send ₹20,000 back to my village every month.”
+              </blockquote>
+</div>
+</div>
+<div class="px-6 pb-6 pt-2 flex items-center justify-between border-t border-surface-container-low">
+<button class="audio-toggle-btn inline-flex items-center gap-1.5 font-label-md text-label-md text-primary hover:text-secondary active:scale-95 transition-all" onclick="toggleAudioPreview(this, 'Rahul Meena (Hindi Audio Testimonial)')">
+<span class="material-symbols-outlined text-body-md text-secondary audio-icon">play_circle</span>
+<span class="audio-label">Listen in Hindi</span>
+<span class="eq-bars hidden items-end gap-0.5 h-4 ml-1 text-secondary">
+<span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span>
+</span>
+</button>
+<span class="font-label-caps text-label-caps text-outline">Batch of 2023</span>
+</div>
+</div>
+<!-- Story 2 -->
+<div class="interactive-card bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl border border-surface-variant/30 flex flex-col justify-between group">
+<div>
+<div class="h-56 relative overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Confident young Indian woman technician smiling wearing safety glasses holding an electronic battery diagnostics multimeter in a clean electric vehicle service bay in Jaipur India." src="https://lh3.googleusercontent.com/aida-public/AB6AXuASowQ1jQeyf1naZfSv69zsYfs53dS4HORCQtr654VlXmm1JQgRCeQQJBlIElUPE8L4mNnH9KQqSUenvQ77I_yPYjTriMkfI6C9f5pJN7ShizImLtEdUySVRhLL6cXez5B82IyTatc1jcv9-2bs7z7c_TdgOaCl1sypb7sBEVzEaHTAxS787DJBTqqXB8qhA1acDbm6LukBPC17yqp2Of4VHb8zET__kvMijvuyf36WYxWEmnOn96ag"/>
+<span class="absolute bottom-3 left-3 px-2.5 py-1 rounded bg-primary/90 backdrop-blur-md text-on-primary font-label-caps text-label-caps uppercase shadow">Jaipur Hub, RJ</span>
+</div>
+<div class="p-6 space-y-4">
+<div>
+<h3 class="font-title-md text-title-md text-primary">Pooja Sharma</h3>
+<p class="font-body-sm text-body-sm text-secondary font-medium">EV Diagnostic Associate • Ather Energy</p>
+</div>
+<div class="p-3 bg-surface-container-low rounded-lg space-y-1 font-body-sm text-body-sm">
+<div class="text-on-surface-variant"><span class="font-medium text-outline">Earlier:</span> 12th pass looking for typing jobs</div>
+<div class="text-primary font-bold"><span class="font-medium text-on-tertiary-container">Now:</span> ₹5.2 Lakhs / Year + Shift Incentives</div>
+</div>
+<blockquote class="font-body-md text-body-md text-on-surface-variant italic">
+                “Being the first girl in my community to touch an EV chassis felt scary. Udaan gave me a 40% Nari Shakti scholarship and practical coaches who believed in me from day one.”
+              </blockquote>
+</div>
+</div>
+<div class="px-6 pb-6 pt-2 flex items-center justify-between border-t border-surface-container-low">
+<button class="inline-flex items-center gap-1.5 font-label-md text-label-md text-primary hover:text-secondary active:scale-95 transition-all" onclick="showStoryToast('Opening Dainik Bhaskar feature coverage on Pooja Sharma...')">
+<span class="material-symbols-outlined text-body-md text-secondary">article</span> Read Dainik Bhaskar Story
+            </button>
+<span class="font-label-caps text-label-caps text-outline">Batch of 2024</span>
+</div>
+</div>
+<!-- Story 3 -->
+<div class="interactive-card bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl border border-surface-variant/30 flex flex-col justify-between group">
+<div>
+<div class="h-56 relative overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A focused young Indian male software developer sitting in a bright modern regional tech coworking space with dual monitors writing computer code on laptop in Kanpur Uttar Pradesh." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnJ_4Wo7Hj2YlPUePLCc5mfcdsudVCY-YZU_KDxJGFBENaFK2upGBHYn2TzM8MfT0VC5p9aSjRMwUzNhH_XHko2-5ojWbcc8KSPWJ3WKbrRp0WiysuOX95uKG4jdrLOv0iNhh0wdAP9ebINrX9J0_2Qy1vua1grtOGPN1TBqaPrxoxvFUem0CTQ50xJqYV3odigXMRMaGEaCx0hhe1Sl6acEd-aosyxsNRS_z9oeRRPheX2HTLELo_"/>
+<span class="absolute bottom-3 left-3 px-2.5 py-1 rounded bg-primary/90 backdrop-blur-md text-on-primary font-label-caps text-label-caps uppercase shadow">Kanpur, UP</span>
+</div>
+<div class="p-6 space-y-4">
+<div>
+<h3 class="font-title-md text-title-md text-primary">Amitabh Verma</h3>
+<p class="font-body-sm text-body-sm text-secondary font-medium">Full-Stack Junior Engineer • AgroTech SaaS</p>
+</div>
+<div class="p-3 bg-surface-container-low rounded-lg space-y-1 font-body-sm text-body-sm">
+<div class="text-on-surface-variant"><span class="font-medium text-outline">Earlier:</span> General B.Com with no computer skills</div>
+<div class="text-primary font-bold"><span class="font-medium text-on-tertiary-container">Now:</span> ₹6.4 Lakhs / Year (Hybrid Model)</div>
+</div>
+<blockquote class="font-body-md text-body-md text-on-surface-variant italic">
+                “Standard coaching centers only taught C++ syntax on blackboards. At Udaan Lucknow Hub, we built live portals for local shopkeepers. That portfolio got me hired immediately.”
+              </blockquote>
+</div>
+</div>
+<div class="px-6 pb-6 pt-2 flex items-center justify-between border-t border-surface-container-low">
+<button class="inline-flex items-center gap-1.5 font-label-md text-label-md text-primary hover:text-secondary active:scale-95 transition-all" onclick="showStoryToast('Playing video documentary: Amitabh Verma from Kanpur to AgroTech')">
+<span class="material-symbols-outlined text-body-md text-secondary">play_circle</span> Watch Video Interview
+            </button>
+<span class="font-label-caps text-label-caps text-outline">Batch of 2024</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 5: INDIA-WIDE TRAINING HUBS NETWORK -->
+<section class="py-20 bg-surface" id="hubs">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Hub Details (5 cols) -->
+<div class="lg:col-span-5 space-y-6">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest font-bold">Physical Infrastructure</span>
+<h2 class="font-headline-lg text-headline-lg-mobile sm:text-headline-lg text-primary">42+ State-of-the-Art Hubs Across Tier-2 &amp; Tier-3 Cities</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            You don't need to relocate to expensive metros like Bengaluru or Delhi to master industry trades. Our physical innovation hubs bring corporate-grade workshops right to your district.
+          </p>
+<!-- Rural Outstation Facilities Feature -->
+<div class="interactive-card p-4 rounded-xl bg-surface-container-low space-y-2 border border-surface-container">
+<div class="flex items-center gap-2 text-primary font-title-md text-title-md">
+<span class="material-symbols-outlined text-secondary">home_work</span>
+<span>Hostel &amp; Mess Accommodation</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Dedicated student hostels for outstation rural learners with clean subsidized mess, 24/7 security, high-speed Wi-Fi, and weekend doubt clinics.
+            </p>
+</div>
+<!-- Featured Hub Cities Quick List (Clickable Interactive Switcher) -->
+<div class="grid grid-cols-2 gap-3 pt-2" id="hub-city-buttons">
+<button class="hub-btn p-3 bg-surface-container-lowest rounded-lg shadow-sm border border-secondary text-left transition-all hover:shadow-md active:scale-95" onclick="switchHub('jaipur')">
+<span class="font-label-salary text-label-salary text-primary block flex items-center justify-between">Jaipur Hub <span class="material-symbols-outlined text-sm text-secondary">check</span></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Sitapura Industrial Zone</span>
+</button>
+<button class="hub-btn p-3 bg-surface-container-lowest rounded-lg shadow-sm border border-transparent hover:border-outline-variant text-left transition-all hover:shadow-md active:scale-95" onclick="switchHub('indore')">
+<span class="font-label-salary text-label-salary text-primary block flex items-center justify-between">Indore Tech Park <span class="material-symbols-outlined text-sm opacity-0 text-secondary">check</span></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Vijay Nagar Sector B</span>
+</button>
+<button class="hub-btn p-3 bg-surface-container-lowest rounded-lg shadow-sm border border-transparent hover:border-outline-variant text-left transition-all hover:shadow-md active:scale-95" onclick="switchHub('lucknow')">
+<span class="font-label-salary text-label-salary text-primary block flex items-center justify-between">Lucknow Academy <span class="material-symbols-outlined text-sm opacity-0 text-secondary">check</span></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Transport Nagar Hub</span>
+</button>
+<button class="hub-btn p-3 bg-surface-container-lowest rounded-lg shadow-sm border border-transparent hover:border-outline-variant text-left transition-all hover:shadow-md active:scale-95" onclick="switchHub('coimbatore')">
+<span class="font-label-salary text-label-salary text-primary block flex items-center justify-between">Coimbatore Center <span class="material-symbols-outlined text-sm opacity-0 text-secondary">check</span></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Peelamedu Tech Corridor</span>
+</button>
+</div>
+</div>
+<!-- Interactive Map / Visual Grid Showcase (7 cols) -->
+<div class="lg:col-span-7">
+<div class="interactive-card bg-surface-container-lowest p-6 rounded-2xl shadow-md border border-surface-variant/40 space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-headline-sm text-secondary">map</span>
+<span class="font-title-md text-title-md text-primary">All-India Network Map</span>
+</div>
+<span class="font-label-caps text-label-caps px-3 py-1 bg-surface-container rounded-full text-on-surface">Updated for 2025</span>
+</div>
+<!-- Map View Container with Location Pipeline -->
+<div class="w-full h-80 bg-cover bg-center rounded-xl relative overflow-hidden flex items-end p-4 shadow-inner border border-surface-container transition-all duration-500" data-location="Indore, India" id="hub-map-display" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAAgArs6VrrDaVDHc-bBwwXBJY0JKGrb_ninI0vAjElPbKhnrNVMuD8bVXXuzzl6ku3mugPcxT75N2NqigHvnzcb5d97_0tbs7t1-2LGZQhA9oFJS1dncHVES1TGemWvKHecIwbz8NBTAl3MreZgOQqEkS0YO88moy_Wqn1xZ5CLRc_Rv6TlfYsih5g9S0QFc_B0p7P6uqD0JW7p5RawJGk3sTz2LWjrRoY2GtFkAtJeaRV6HJJF24D')">
+<div class="absolute inset-0 bg-primary/15 transition-colors"></div>
+<!-- Interactive Location Pin Beacon -->
+<div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center pointer-events-none" id="map-pin">
+<span class="flex h-6 w-6 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-6 w-6 bg-secondary items-center justify-center text-white text-xs font-bold shadow-lg">●</span>
+</span>
+<span class="bg-primary/95 text-white font-label-caps text-label-caps px-2 py-0.5 rounded shadow mt-1 whitespace-nowrap" id="map-pin-label">Sitapura Hub</span>
+</div>
+<div class="bg-surface/95 backdrop-blur-md p-4 rounded-xl shadow-md max-w-sm relative z-10 border border-surface-container/60 transition-all duration-300" id="hub-info-card">
+<p class="font-label-caps text-label-caps text-secondary uppercase font-bold" id="hub-detail-tag">Featured Center: Jaipur Hub</p>
+<p class="font-title-md text-title-md text-primary" id="hub-detail-title">Advanced Mechatronics &amp; EV Lab</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1" id="hub-detail-desc">12,000 sq.ft. facility equipped with Siemens CNC simulators and Bosch diagnostic stations.</p>
+</div>
+</div>
+<div class="flex flex-wrap items-center justify-between gap-2 pt-2 text-xs font-body-sm text-on-surface-variant">
+<span>📍 Northern: Jaipur, Lucknow, Kanpur, Varanasi, Dehradun</span>
+<span>📍 Central &amp; Western: Indore, Bhopal, Nagpur, Pune</span>
+<span>📍 Southern: Coimbatore, Madurai, Hubballi</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 6: HIRING PARTNERS & EMPLOYER TESTIMONIAL -->
+<section class="py-16 bg-surface-container-low" id="partners">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="text-center max-w-2xl mx-auto mb-10 space-y-2">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest font-bold">Industry Backing</span>
+<h2 class="font-headline-md text-headline-md text-primary">380+ National Employers Actively Hire From Udaan</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Leading Indian conglomerates and emerging green startups hire whole batches directly from our workshop campus drives.
+        </p>
+</div>
+<!-- Partner Logos / Identity Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-4 items-center">
+<div class="interactive-card h-16 bg-surface-container-lowest rounded-lg shadow-sm hover:shadow-md border border-surface-variant/30 flex items-center justify-center p-3 text-center cursor-default">
+<span class="font-headline-sm text-headline-sm text-primary tracking-tight font-extrabold">TATA MOTORS</span>
+</div>
+<div class="interactive-card h-16 bg-surface-container-lowest rounded-lg shadow-sm hover:shadow-md border border-surface-variant/30 flex items-center justify-center p-3 text-center cursor-default">
+<span class="font-headline-sm text-headline-sm text-primary tracking-tight font-extrabold">L&amp;T</span>
+</div>
+<div class="interactive-card h-16 bg-surface-container-lowest rounded-lg shadow-sm hover:shadow-md border border-surface-variant/30 flex items-center justify-center p-3 text-center cursor-default">
+<span class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold">Schneider</span>
+</div>
+<div class="interactive-card h-16 bg-surface-container-lowest rounded-lg shadow-sm hover:shadow-md border border-surface-variant/30 flex items-center justify-center p-3 text-center cursor-default">
+<span class="font-headline-sm text-headline-sm text-secondary tracking-tight font-extrabold">ATHER</span>
+</div>
+<div class="interactive-card h-16 bg-surface-container-lowest rounded-lg shadow-sm hover:shadow-md border border-surface-variant/30 flex items-center justify-center p-3 text-center cursor-default">
+<span class="font-headline-sm text-headline-sm text-on-tertiary-container tracking-tight font-bold">APOLLO</span>
+</div>
+<div class="interactive-card h-16 bg-surface-container-lowest rounded-lg shadow-sm hover:shadow-md border border-surface-variant/30 flex items-center justify-center p-3 text-center cursor-default">
+<span class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold">Reliance</span>
+</div>
+<div class="interactive-card h-16 bg-surface-container-lowest rounded-lg shadow-sm hover:shadow-md border border-surface-variant/30 flex items-center justify-center p-3 text-center cursor-default">
+<span class="font-headline-sm text-headline-sm text-secondary tracking-tight font-extrabold">Flipkart</span>
+</div>
+</div>
+<!-- Verified Employer Quote Box -->
+<div class="interactive-card mt-12 bg-surface-container-lowest rounded-xl p-8 shadow-sm hover:shadow-md border border-surface-variant/30 max-w-4xl mx-auto flex flex-col sm:flex-row items-center gap-6">
+<div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-on-primary shrink-0 shadow-md">
+<span class="material-symbols-outlined text-headline-lg">format_quote</span>
+</div>
+<div class="space-y-2 text-center sm:text-left">
+<p class="font-body-lg text-body-lg text-primary italic">
+            “Most fresh college graduates spend 6 months in basic training before touching a single wire. Udaan technicians arrive Day 1 job-ready with practical diagnostics experience on actual EV harnesses and safety protocols.”
+          </p>
+<div class="text-xs font-body-sm text-on-surface-variant">
+<strong class="text-primary font-bold">Vikramaditya Sengupta</strong> • Head of Talent Acquisition &amp; Plant Operations, GreenTech India
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 7: SALARY POTENTIAL & ROI CALCULATOR WIDGET -->
+<section class="py-20 bg-surface" id="roi-calculator">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="text-center max-w-2xl mx-auto space-y-2 mb-12">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest font-bold">Transparent Career Economics</span>
+<h2 class="font-headline-lg text-headline-lg-mobile sm:text-headline-lg text-primary">Calculate Your Starting Salary &amp; ROI</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          See exactly how quickly your Udaan training pays for itself based on real placement data from the last 12 cohorts.
+        </p>
+</div>
+<!-- Calculator Card Container -->
+<div class="interactive-card max-w-4xl mx-auto bg-surface-container-lowest rounded-2xl p-6 sm:p-10 shadow-xl border border-surface-variant/40">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<!-- Inputs Column (7 Cols) -->
+<div class="lg:col-span-7 space-y-6">
+<!-- 1. Education Level -->
+<div>
+<label class="block font-label-md text-label-md text-primary mb-2">1. Your Current Education Background</label>
+<div class="grid grid-cols-3 gap-2" id="calc-edu-group">
+<button class="calc-edu-btn px-3 py-2 rounded-lg bg-primary text-on-primary font-label-caps text-label-caps text-center transition-all shadow-sm ring-2 ring-primary/20" onclick="updateCalcEdu(this, '12th')" type="button">12th Standard</button>
+<button class="calc-edu-btn px-3 py-2 rounded-lg bg-surface-container text-on-surface font-label-caps text-label-caps text-center hover:bg-surface-container-high transition-all" onclick="updateCalcEdu(this, 'iti')" type="button">ITI Diploma</button>
+<button class="calc-edu-btn px-3 py-2 rounded-lg bg-surface-container text-on-surface font-label-caps text-label-caps text-center hover:bg-surface-container-high transition-all" onclick="updateCalcEdu(this, 'grad')" type="button">College Graduate</button>
+</div>
+</div>
+<!-- 2. Target Trade -->
+<div>
+<label class="block font-label-md text-label-md text-primary mb-2" for="calc-trade-select">2. Desired High-Demand Career Trade</label>
+<div class="relative">
+<select class="w-full bg-surface-container-low text-primary p-3 pr-10 rounded-lg font-body-md text-body-md border border-surface-container focus:outline-none focus:ring-2 focus:ring-primary appearance-none cursor-pointer transition-all" id="calc-trade-select" onchange="recalculateROI()">
+<option selected="" value="ev">Electric Vehicle (EV) Powertrain &amp; Diagnostics</option>
+<option value="solar">Solar PV Rooftop System Engineer</option>
+<option value="it">Full-Stack Web &amp; Low-Code Solutions</option>
+<option value="health">Emergency Medical &amp; Dialysis Technician</option>
+<option value="cnc">Precision CNC Machine Programmer</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-outline">expand_more</span>
+</div>
+</div>
+<!-- 3. Target City Placement Tier -->
+<div>
+<label class="block font-label-md text-label-md text-primary mb-2">3. Preferred Placement City Location</label>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<label class="p-3 bg-surface-container-low rounded-lg flex items-center gap-2 cursor-pointer border border-surface-container hover:bg-surface-container transition-colors">
+<input checked="" class="text-secondary focus:ring-secondary" name="city_tier" onchange="recalculateROI()" type="radio" value="tier2"/>
+<span class="font-body-sm text-body-sm text-primary">Tier-2 Regional (Jaipur, Indore, Lucknow)</span>
+</label>
+<label class="p-3 bg-surface-container-low rounded-lg flex items-center gap-2 cursor-pointer border border-surface-container hover:bg-surface-container transition-colors">
+<input class="text-secondary focus:ring-secondary" name="city_tier" onchange="recalculateROI()" type="radio" value="tier1"/>
+<span class="font-body-sm text-body-sm text-primary">Metro/Tier-1 (Pune, Bengaluru, NCR)</span>
+</label>
+</div>
+</div>
+</div>
+<!-- Output Display Column (5 Cols) -->
+<div class="lg:col-span-5 bg-surface-container-low rounded-xl p-6 flex flex-col justify-between space-y-6 border border-surface-container shadow-inner">
+<div class="space-y-4">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-secondary font-bold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">trending_up</span> Estimated Earnings Preview
+              </span>
+<div>
+<span class="text-xs font-body-sm text-on-surface-variant block">Expected Monthly Starting Salary</span>
+<div class="font-display-hero text-headline-lg sm:text-display-hero-mobile text-primary font-bold transition-all duration-300 flex items-baseline">
+                ₹<span id="calc-monthly-salary">35,000</span><span class="text-title-md text-on-surface-variant font-normal"> / mo</span>
+</div>
+<span class="text-xs font-body-sm text-on-tertiary-container block mt-0.5 font-medium" id="calc-annual-salary">₹4.20 Lakhs per annum starting base</span>
+</div>
+<div class="space-y-2 pt-2 border-t border-surface-container">
+<div class="flex items-center justify-between text-xs font-body-sm">
+<span class="text-on-surface-variant">Time to Breakeven Course Fee:</span>
+<strong class="text-primary font-bold" id="calc-payback">3.2 Months</strong>
+</div>
+<div class="flex items-center justify-between text-xs font-body-sm">
+<span class="text-on-surface-variant">Projected 3-Year Senior Salary:</span>
+<strong class="text-secondary font-bold" id="calc-3yr-salary">₹7.5L - ₹9.0L CTC</strong>
+</div>
+</div>
+</div>
+<a class="btn-shimmer w-full py-3 rounded-lg bg-secondary text-on-secondary font-label-md text-label-md text-center hover:bg-on-secondary-container hover:shadow-lg active:scale-95 transition-all shadow-sm" href="#quick-apply">
+              Claim Guaranteed Seat In Batch
+            </a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 8: COMPREHENSIVE FAQ SECTION -->
+<section class="py-20 bg-surface-container-low" id="faqs">
+<div class="max-w-4xl mx-auto px-6 lg:px-12 space-y-10">
+<div class="text-center space-y-2">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest font-bold">Got Questions?</span>
+<h2 class="font-headline-lg text-headline-lg-mobile sm:text-headline-lg text-primary">Frequently Asked Questions</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Everything parents and students need to know before joining.</p>
+</div>
+<div class="space-y-4" id="faq-accordion-container">
+<!-- FAQ Item 1 -->
+<div class="faq-item interactive-card bg-surface-container-lowest rounded-xl shadow-sm border border-surface-variant/30 overflow-hidden transition-all">
+<button aria-expanded="true" class="faq-trigger w-full flex items-center justify-between p-5 text-left cursor-pointer select-none" onclick="toggleFaq(this)">
+<span class="font-title-md text-title-md text-primary font-semibold">Is financial aid or 0% EMI available for students who cannot pay upfront?</span>
+<span class="material-symbols-outlined text-title-md text-secondary transition-transform duration-300 rotate-180 faq-chevron">expand_more</span>
+</button>
+<div class="faq-content px-5 pb-5 pt-0 transition-all duration-300">
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Yes! Through our partnerships with RBI-regulated NBFC partners, 100% of Udaan diploma courses offer 0% interest EMI options. You only start repaying your tuition after your monthly paid apprenticeship begins, so your family incurs zero out-of-pocket financial stress.
+            </p>
+</div>
+</div>
+<!-- FAQ Item 2 -->
+<div class="faq-item interactive-card bg-surface-container-lowest rounded-xl shadow-sm border border-surface-variant/30 overflow-hidden transition-all">
+<button aria-expanded="false" class="faq-trigger w-full flex items-center justify-between p-5 text-left cursor-pointer select-none" onclick="toggleFaq(this)">
+<span class="font-title-md text-title-md text-primary font-semibold">Do I get an NSDC and Government recognized certificate?</span>
+<span class="material-symbols-outlined text-title-md text-secondary transition-transform duration-300 faq-chevron">expand_more</span>
+</button>
+<div class="faq-content hidden px-5 pb-5 pt-0 transition-all duration-300">
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Every diploma is directly aligned with the National Skill Development Corporation (NSDC) and respective Sector Skill Councils (Automotive, Telecom, Healthcare, Green Energy). Upon graduation, your credentials are automatically uploaded to your Government of India DigiLocker account with a verifiable QR code.
+            </p>
+</div>
+</div>
+<!-- FAQ Item 3 -->
+<div class="faq-item interactive-card bg-surface-container-lowest rounded-xl shadow-sm border border-surface-variant/30 overflow-hidden transition-all">
+<button aria-expanded="false" class="faq-trigger w-full flex items-center justify-between p-5 text-left cursor-pointer select-none" onclick="toggleFaq(this)">
+<span class="font-title-md text-title-md text-primary font-semibold">What if I do not get placed after completing the course?</span>
+<span class="material-symbols-outlined text-title-md text-secondary transition-transform duration-300 faq-chevron">expand_more</span>
+</button>
+<div class="faq-content hidden px-5 pb-5 pt-0 transition-all duration-300">
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              We provide a strict Placement Promise. Udaan schedules a minimum of 3 guaranteed corporate interview rounds. In the rare event a compliant student who attended 90%+ lab shifts does not receive an offer within 90 days of graduation, our Placement Cell continues dedicated 1-on-1 mentorship until hired, or provides complete tuition refund as per policy terms.
+            </p>
+</div>
+</div>
+<!-- FAQ Item 4 -->
+<div class="faq-item interactive-card bg-surface-container-lowest rounded-xl shadow-sm border border-surface-variant/30 overflow-hidden transition-all">
+<button aria-expanded="false" class="faq-trigger w-full flex items-center justify-between p-5 text-left cursor-pointer select-none" onclick="toggleFaq(this)">
+<span class="font-title-md text-title-md text-primary font-semibold">Can women join technical trades like EV mechanics and CNC machining?</span>
+<span class="material-symbols-outlined text-title-md text-secondary transition-transform duration-300 faq-chevron">expand_more</span>
+</button>
+<div class="faq-content hidden px-5 pb-5 pt-0 transition-all duration-300">
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Absolutely. In fact, our specialized 'Nari Shakti in Trades' scholarship covers 40% of upfront tuition for female candidates joining EV, Solar, and IT cohorts. Over 4,200 women have successfully graduated from Udaan and are now full-time technical specialists at Ather, Tata Motors, and Apollo Diagnostics.
+            </p>
+</div>
+</div>
+<!-- FAQ Item 5 -->
+<div class="faq-item interactive-card bg-surface-container-lowest rounded-xl shadow-sm border border-surface-variant/30 overflow-hidden transition-all">
+<button aria-expanded="false" class="faq-trigger w-full flex items-center justify-between p-5 text-left cursor-pointer select-none" onclick="toggleFaq(this)">
+<span class="font-title-md text-title-md text-primary font-semibold">What languages are the workshops and classes taught in?</span>
+<span class="material-symbols-outlined text-title-md text-secondary transition-transform duration-300 faq-chevron">expand_more</span>
+</button>
+<div class="faq-content hidden px-5 pb-5 pt-0 transition-all duration-300">
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              All classes are conducted in comfortable conversational Hindi, Hinglish, or the respective state vernacular (Tamil in Coimbatore, Marathi in Pune). However, every trade includes a parallel daily module teaching essential English technical vocabulary so you can pass corporate interviews with confidence.
+            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 9: HIGH-CONVERSION FINAL CTA & QUICK LEAD FORM -->
+<section class="py-20 bg-primary text-on-primary relative overflow-hidden" id="quick-apply">
+<!-- Subtle Background Glow -->
+<div class="absolute top-0 right-0 w-96 h-96 bg-secondary/20 rounded-full blur-3xl pointer-events-none animate-float"></div>
+<div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Text & Trust (6 Cols) -->
+<div class="lg:col-span-6 space-y-6">
+<span class="font-label-caps text-label-caps text-secondary-fixed uppercase tracking-widest font-bold">Your Career Starts Here</span>
+<h2 class="font-headline-lg text-headline-lg-mobile sm:text-headline-lg text-on-primary">
+            Ready to Transform Your Ambition into a Respected Career?
+          </h2>
+<p class="font-body-lg text-body-lg text-primary-fixed leading-relaxed">
+            Don't waste another year waiting for competitive exam results or unaccredited degrees. Get into a practical workshop next week and start earning with dignity.
+          </p>
+<div class="space-y-3 pt-2">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-headline-sm text-on-tertiary-container">verified</span>
+<span class="font-body-md text-body-md text-on-primary">Free 1-on-1 counseling with industry engineers</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-headline-sm text-on-tertiary-container">support_agent</span>
+<span class="font-body-md text-body-md text-on-primary">Local language assistance for parents &amp; guardians</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-headline-sm text-on-tertiary-container">savings</span>
+<span class="font-body-md text-body-md text-on-primary">Immediate eligibility check for 0% EMI &amp; Scholarships</span>
+</div>
+</div>
+<!-- WhatsApp Chat Pill -->
+<div class="pt-4">
+<a class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-surface-container-lowest/10 hover:bg-surface-container-lowest/20 hover:scale-105 text-on-primary font-body-sm text-body-sm backdrop-blur-md transition-all shadow-sm" href="https://wa.me/919820000000" target="_blank">
+<span class="material-symbols-outlined text-body-md text-on-tertiary-container">chat</span>
+<span>Got quick questions? Chat directly on WhatsApp: <strong>+91 98200 UDAAN</strong></span>
+</a>
+</div>
+</div>
+<!-- Quick Lead Capture Form (6 Cols) -->
+<div class="lg:col-span-6">
+<div class="interactive-card bg-surface-container-lowest text-on-surface rounded-2xl p-8 shadow-2xl space-y-5 border border-surface-variant/40" id="counseling-form-container">
+<div class="space-y-1">
+<h3 class="font-headline-sm text-headline-sm text-primary">Book Free Career Counseling</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Our senior technical coach will call you within 15 minutes.</p>
+</div>
+<form class="space-y-4" id="counseling-form" onsubmit="handleFormSubmit(event)">
+<!-- Full Name -->
+<div>
+<label class="block font-label-md text-label-md text-primary mb-1.5" for="full-name-input">Full Name (पूरा नाम) *</label>
+<input class="w-full bg-surface-container-low px-4 py-3 rounded-lg font-body-md text-body-md text-on-surface outline-none border border-transparent focus:border-primary focus:bg-surface transition-all" id="full-name-input" placeholder="e.g. Ramesh Kumar Patel" required="" type="text"/>
+</div>
+<!-- Mobile Number -->
+<div>
+<label class="block font-label-md text-label-md text-primary mb-1.5" for="phone-input">Mobile Number (मोबाइल नंबर) *</label>
+<div class="flex items-center bg-surface-container-low rounded-lg overflow-hidden border border-transparent focus-within:border-primary focus-within:bg-surface transition-all">
+<span class="px-3 py-3 text-on-surface-variant font-label-md text-label-md bg-surface-container-high/40">+91</span>
+<input class="w-full bg-transparent px-3 py-3 font-body-md text-body-md text-on-surface outline-none" id="phone-input" pattern="[0-9]{10}" placeholder="9876543210" required="" type="tel"/>
+</div>
+<span class="text-xs font-body-sm text-outline mt-1 block">We'll send an instant OTP verification for seat confirmation.</span>
+</div>
+<!-- Preferred Hub City -->
+<div>
+<label class="block font-label-md text-label-md text-primary mb-1.5" for="hub-select-input">Nearest Hub / City (नज़दीकी केंद्र) *</label>
+<select class="w-full bg-surface-container-low px-4 py-3 rounded-lg font-body-md text-body-md text-on-surface outline-none border border-transparent focus:border-primary focus:bg-surface transition-all cursor-pointer" id="hub-select-input" required="">
+<option disabled="" selected="" value="">Select Nearest Training Hub</option>
+<option value="Jaipur Innovation Lab (Rajasthan)">Jaipur Innovation Lab (Rajasthan)</option>
+<option value="Indore Skill Park (Madhya Pradesh)">Indore Skill Park (Madhya Pradesh)</option>
+<option value="Lucknow Digital Academy (Uttar Pradesh)">Lucknow Digital Academy (Uttar Pradesh)</option>
+<option value="Patna Vocational Complex (Bihar)">Patna Vocational Complex (Bihar)</option>
+<option value="Coimbatore Engineering Center (Tamil Nadu)">Coimbatore Engineering Center (Tamil Nadu)</option>
+<option value="Nagpur Green Tech Hub (Maharashtra)">Nagpur Green Tech Hub (Maharashtra)</option>
+<option value="Pan-India Hybrid (Online + Coworking)">Pan-India Hybrid (Online + Coworking)</option>
+</select>
+</div>
+<!-- Trade Preference -->
+<div>
+<label class="block font-label-md text-label-md text-primary mb-1.5" for="trade-select-input">Interested Trade (पसंदीदा कोर्स)</label>
+<select class="w-full bg-surface-container-low px-4 py-3 rounded-lg font-body-md text-body-md text-on-surface outline-none border border-transparent focus:border-primary focus:bg-surface transition-all cursor-pointer" id="trade-select-input">
+<option value="Electric Vehicle (EV) Powertrain &amp; Battery Tech">Electric Vehicle (EV) Powertrain &amp; Battery Tech</option>
+<option value="Solar PV Rooftop System Engineer">Solar PV Rooftop System Engineer</option>
+<option value="Full-Stack Web &amp; Low-Code Solutions">Full-Stack Web &amp; Low-Code Solutions</option>
+<option value="Emergency Medical &amp; Dialysis Technician">Emergency Medical &amp; Dialysis Technician</option>
+<option value="Not Sure Yet (Need Expert Guidance)">Not Sure Yet (Need Expert Guidance)</option>
+</select>
+</div>
+<!-- Submit CTA -->
+<button class="btn-shimmer w-full py-4 rounded-lg bg-secondary text-on-secondary font-headline-sm text-headline-sm hover:bg-on-secondary-container hover:shadow-xl active:scale-95 transition-all shadow-md flex items-center justify-center gap-2 group" id="submit-lead-btn" type="submit">
+<span>Book Free Counseling Session</span>
+<span class="material-symbols-outlined text-title-md group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<p class="text-center text-xs font-body-sm text-outline pt-1 flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-sm">lock</span>
+<span>Your details are 100% safe. No spam calls. Government of India Skill Mission Partner.</span>
+</p>
+</form>
+<!-- Success State (hidden initially) -->
+<div class="hidden py-8 text-center space-y-4" id="form-success-state">
+<div class="w-16 h-16 rounded-full bg-tertiary-fixed text-on-tertiary-container mx-auto flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-headline-lg">verified</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary">Dhanyawad! Request Received.</h4>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm mx-auto">
+              Our regional technical counselor has reserved your provisional slot and will phone you within 15 minutes.
+            </p>
+<div class="p-3 bg-surface-container-low rounded-lg inline-block font-label-caps text-label-caps text-secondary font-bold">
+              Token ID: #UDAAN-2025-<span id="token-id-val">8492</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div></main>
+
+<!-- Floating Toast Notification System -->
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none" id="toast-notification">
+<div class="bg-primary text-on-primary px-5 py-3.5 rounded-xl shadow-2xl flex items-center gap-3 border border-outline-variant/20">
+<span class="material-symbols-outlined text-secondary" id="toast-icon">info</span>
+<span class="font-body-sm text-body-sm" id="toast-msg">Notification message</span>
+</div>
+</div>
+
+<footer class="w-full bg-surface-container-low mt-space-xl"><div class="max-w-7xl mx-auto px-6 lg:px-12 pt-16 pb-12"><div class="grid grid-cols-1 lg:grid-cols-5 gap-10 pb-12"><div class="lg:col-span-2 space-y-4"><div class="flex items-center gap-3"><img alt="Udaan Skills Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VBpmT0UI9RnldZfYB2GjAT0GNGpwrt_JBvM4vkd8CZdpCMq_iqtUo8d6fNaBtLilqTQQUiji73AEkk8wQbY2dW1eHyquNImn7OrrNv0d5xucutoC8YuUHtdYeat8qnvyRjPQs_IPsGE26kcyskH38A1nmQbsCv0F1CtkFxl9gfC0CaF5wRwax9WozDFZHiU2NkTU9MoPtihUFAczDN8WePl6v9ZU0804PesdEqt71T6WIK6VQN55bjRV8"/><span class="font-headline-sm text-headline-sm tracking-tight text-primary">Udaan Skills</span></div><p class="font-body-md text-body-md text-on-surface-variant max-w-md leading-relaxed">Empowering 1,000,000+ aspirational youth across Bharat's Tier-2 &amp; Tier-3 towns with industry-grade vocational skills, real workshop apprenticeships, and direct placement connections.</p><div class="flex items-center gap-3 pt-2"><span class="inline-flex items-center gap-1.5 px-3 py-1 bg-surface-container rounded-full font-label-caps text-label-caps text-primary"><span class="material-symbols-outlined text-body-sm text-on-tertiary-container">verified</span> NSDC Partner ID #NSDC-IND-2024</span><span class="inline-flex items-center gap-1.5 px-3 py-1 bg-surface-container rounded-full font-label-caps text-label-caps text-on-surface-variant"><span class="material-symbols-outlined text-body-sm">workspace_premium</span> ISO 9001:2015</span></div></div><div class="space-y-3"><h3 class="font-title-md text-title-md text-primary">Popular Career Trades</h3><ul class="space-y-2 font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-primary transition-colors" data-path="programs-and-trades" href="#programs">EV Technician &amp; Battery Tech</a></li><li><a class="hover:text-primary transition-colors" data-path="programs-and-trades" href="#programs">Solar Energy Installer</a></li><li><a class="hover:text-primary transition-colors" data-path="programs-and-trades" href="#programs">Full Stack Web &amp; Mobile</a></li><li><a class="hover:text-primary transition-colors" data-path="programs-and-trades" href="#programs">Healthcare &amp; Dialysis Assistant</a></li><li><a class="hover:text-primary transition-colors" data-path="programs-and-trades" href="#programs">Precision CNC Operator</a></li><li><a class="hover:text-primary transition-colors" data-path="programs-and-trades" href="#programs">BPO &amp; Customer Success</a></li></ul></div><div class="space-y-3"><h3 class="font-title-md text-title-md text-primary">Training Hubs &amp; Labs</h3><ul class="space-y-2 font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-primary transition-colors" data-path="explore-hubs" href="#hubs" onclick="switchHub('jaipur')">Jaipur Innovation Lab</a></li><li><a class="hover:text-primary transition-colors" data-path="explore-hubs" href="#hubs" onclick="switchHub('indore')">Indore Skill Park</a></li><li><a class="hover:text-primary transition-colors" data-path="explore-hubs" href="#hubs" onclick="switchHub('lucknow')">Lucknow Digital Academy</a></li><li><a class="hover:text-primary transition-colors" data-path="explore-hubs" href="#hubs" onclick="switchHub('coimbatore')">Coimbatore Green Tech Center</a></li><li><a class="hover:text-primary transition-colors" data-path="explore-hubs" href="#hubs">Patna Vocational Hub</a></li></ul></div><div class="space-y-3"><h3 class="font-title-md text-title-md text-primary">Learner Support</h3><ul class="space-y-2 font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-primary transition-colors" data-path="learner-support" href="#roi-calculator">Skill Loan at 0% EMI</a></li><li><a class="hover:text-primary transition-colors" data-path="learner-support" href="#faqs">DigiLocker Certificate Verify</a></li><li><a class="hover:text-primary transition-colors" data-path="learner-support" href="#faqs">AI Resume &amp; Bio-Data Builder</a></li><li><a class="hover:text-primary transition-colors" data-path="career-guidance-faq" href="#quick-apply">Free Career Counselling</a></li><li><a class="hover:text-primary transition-colors" data-path="learner-support" href="#faqs">Women in Trades Scholarship</a></li><li><a class="hover:text-primary transition-colors" data-path="compliance-and-legal" href="#">Grievance Redressal</a></li></ul></div></div><div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 font-body-sm text-body-sm text-on-surface-variant"><div class="flex flex-col sm:flex-row items-center gap-2 text-center md:text-left"><span>© 2025 Udaan Skills Foundation. Built with pride for Bharat. All rights reserved.</span><span class="hidden sm:inline">•</span><span class="text-xs">₹ Prices inclusive of GST where applicable.</span></div><div class="flex items-center gap-4 text-xs"><span class="flex items-center gap-1 font-medium text-primary"><span class="material-symbols-outlined text-base text-on-tertiary-container">military_tech</span> Skill India Partner</span><span class="flex items-center gap-1 font-medium text-primary"><span class="material-symbols-outlined text-base text-secondary">verified_user</span> NSDC Recognized</span><span class="flex items-center gap-1 font-medium text-primary"><span class="material-symbols-outlined text-base text-on-primary-container">devices</span> Digital India Supporter</span></div></div></div></footer>
+
+<!-- Interactive Scripts Bundle -->
+<script>
+// Toast utility
+let toastTimeout;
+function showStoryToast(message, icon = 'info') {
+  const toast = document.getElementById('toast-notification');
+  const msgEl = document.getElementById('toast-msg');
+  const iconEl = document.getElementById('toast-icon');
+  if (!toast || !msgEl || !iconEl) return;
+  
+  msgEl.innerText = message;
+  iconEl.innerText = icon;
+  
+  clearTimeout(toastTimeout);
+  toast.classList.remove('opacity-0', 'translate-y-24', 'pointer-events-none');
+  toast.classList.add('opacity-100', 'translate-y-0');
+  
+  toastTimeout = setTimeout(() => {
+    toast.classList.add('opacity-0', 'translate-y-24', 'pointer-events-none');
+    toast.classList.remove('opacity-100', 'translate-y-0');
+  }, 3800);
+}
+
+// Language switch feedback
+function switchLanguage(button, lang) {
+  const container = document.getElementById('lang-switcher');
+  if (!container) return;
+  const buttons = container.querySelectorAll('button');
+  buttons.forEach(btn => {
+    btn.classList.remove('text-on-primary', 'font-bold');
+    btn.classList.add('text-surface-variant');
+  });
+  button.classList.add('text-on-primary', 'font-bold');
+  button.classList.remove('text-surface-variant');
+  
+  const labels = {
+    en: 'Language set to English',
+    hi: 'भाषा को हिन्दी में सेट किया गया है',
+    ta: 'மொழி தமிழுக்கு மாற்றப்பட்டது'
+  };
+  showStoryToast(labels[lang] || 'Language updated', 'translate');
+}
+
+// Hero Qualification Selector
+function selectHeroQualification(button, qualKey) {
+  const container = document.getElementById('hero-qualification-filters');
+  if (!container) return;
+  const buttons = container.querySelectorAll('button');
+  buttons.forEach(btn => {
+    btn.className = 'qual-btn px-3.5 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high font-label-md text-label-md text-primary transition-all active:scale-95';
+  });
+  button.className = 'qual-btn px-3.5 py-1.5 rounded-full bg-primary text-on-primary font-label-md text-label-md transition-all shadow-sm active:scale-95 ring-2 ring-primary/20';
+  
+  // Sync with calculator
+  const calcBtn = document.querySelector(`.calc-edu-btn[onclick*="${qualKey}"]`);
+  if (calcBtn) {
+    updateCalcEdu(calcBtn, qualKey);
+  }
+}
+
+// Trade Sector Filter
+function filterSector(btn, sector) {
+  const tabContainer = document.getElementById('trade-sector-filters');
+  if (tabContainer) {
+    const tabs = tabContainer.querySelectorAll('.sector-tab');
+    tabs.forEach(t => {
+      t.className = 'sector-tab px-4 py-2 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container font-label-md text-label-md whitespace-nowrap shadow-sm transition-all active:scale-95';
+    });
+    btn.className = 'sector-tab px-4 py-2 rounded-lg bg-primary text-on-primary font-label-md text-label-md whitespace-nowrap shadow-sm transition-all active:scale-95';
+  }
+  
+  const cards = document.querySelectorAll('#trade-cards-container .trade-card');
+  let visibleCount = 0;
+  cards.forEach(card => {
+    const cardSector = card.getAttribute('data-sector');
+    if (sector === 'all' || cardSector === sector) {
+      card.style.display = 'flex';
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(12px)';
+      visibleCount++;
+      setTimeout(() => {
+        card.style.transition = 'all 0.35s ease-out';
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }, 30);
+    } else {
+      card.style.display = 'none';
+    }
+  });
+  
+  const indicator = document.getElementById('trades-count-indicator');
+  if (indicator) {
+    indicator.innerText = sector === 'all' ? 'Showing 4 of 24 Verified Diplomas' : `Showing ${visibleCount} Verified Diplomas in ${btn.innerText.split('(')[0].trim()}`;
+  }
+}
+
+// Preselect Trade in quick apply
+function preselectTrade(tradeName) {
+  const select = document.getElementById('trade-select-input');
+  if (select) {
+    for (let i = 0; i < select.options.length; i++) {
+      if (select.options[i].text.includes(tradeName.split(' ')[0])) {
+        select.selectedIndex = i;
+        break;
+      }
+    }
+  }
+}
+
+// Audio Preview Toggle
+let currentPlayingBtn = null;
+function toggleAudioPreview(btn, storyName) {
+  const icon = btn.querySelector('.audio-icon');
+  const label = btn.querySelector('.audio-label');
+  const eq = btn.querySelector('.eq-bars');
+  
+  if (currentPlayingBtn && currentPlayingBtn !== btn) {
+    const prevIcon = currentPlayingBtn.querySelector('.audio-icon');
+    const prevLabel = currentPlayingBtn.querySelector('.audio-label');
+    const prevEq = currentPlayingBtn.querySelector('.eq-bars');
+    if (prevIcon) prevIcon.innerText = 'play_circle';
+    if (prevLabel) prevLabel.innerText = 'Listen in Hindi';
+    if (prevEq) prevEq.classList.add('hidden');
+  }
+
+  const isPlaying = icon.innerText === 'pause_circle';
+  if (isPlaying) {
+    icon.innerText = 'play_circle';
+    label.innerText = 'Listen in Hindi';
+    eq.classList.add('hidden');
