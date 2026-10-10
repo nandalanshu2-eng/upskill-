@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "node index.js",
-    "build": "npm run build --prefix ../client",
+    "build": "npm run build --prefix .. --workspace=udaan-skills-client",
     "seed": "node scripts/seed.js"
   },
   "dependencies": {
